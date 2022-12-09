@@ -1,0 +1,322 @@
+.root {
+}
+* {
+    color:#ffffff;
+    -unity-font: resource("Assets/LightShipHUB/Editor/Fonts/Gilroy-Medium.ttf");
+    background-color: transparent;
+}
+.topGradient {
+    height: 6px;
+    width: 970px;
+    background-image:resource("Assets/LightShipHUB/Editor/Textures/UIAssets/TopGradient.png");
+}
+#container {
+    height:100%;
+    width:100%;
+}
+#side-view {
+    background-image:resource("Assets/LightShipHUB/Editor/Textures/UIAssets/Background.png");
+    flex-direction: row;
+    height:680px;
+}
+#sections {
+    width: 250px;
+    height: 100%;
+    background-color:transparent;
+    border-right-width: 1px;
+    border-right-color: rgba(255,255,255,.2);
+}
+#logo {
+    width: 144px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-image:resource("Assets/LightShipHUB/Editor/Textures/UIAssets/LightshipLogo.png");
+    -unity-background-scale-mode: scale-to-fit;
+}
+#learn_more {
+    -unity-text-align: middle-center;
+}
+#welcome-sections {
+    padding-top: 70px;
+    height: 100%;
+}
+#welcome-sections Label.menuItem {
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding:15px; 
+    font-size: 16px;
+    cursor: link;
+    padding-left: 25px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255,255,255,.2);
+    color: rgba(255, 255, 255,.4);
+}
+#version {
+    position: absolute;
+    bottom:0px;
+    padding:20px;
+    font-size: 11px;
+    opacity: .4;
+    
+}
+#welcome-sections Label.menuItem:hover {
+    color: rgba(255, 255, 255, .8);
+}
+#welcome-sections Label.menuItem.active {
+    color: rgba(255, 255, 255, 1);
+}
+#welcome-sections Label.menuItem.active , #welcome-sections Label.menuItem.active:hover {
+    color: rgba(255, 255, 255, 1);
+}
+.grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.title {
+    font-size: 36px;
+    height: auto;
+    -unity-font: resource("Assets/LightShipHUB/Editor/Fonts/Gilroy-Regular.ttf");
+    color: rgb(255,255,255);
+    padding:30px;
+    border-bottom-color: rgba(255,255,255,.2);
+    border-bottom-width: 1px;
+}
+
+.subtitle {
+    font-size: 24px;
+    height: auto;
+    -unity-font: resource("Assets/LightShipHUB/Editor/Fonts/Gilroy-Regular.ttf");
+    color: rgb(255,255,255);
+    padding-top:30px;
+    padding-left:30px;
+    padding-bottom:10px;
+    
+}
+#help Label.title,
+#aboutus Label.title {
+    width:730px;
+}
+#aboutus Label#nianticlogo {
+    background-image:resource("Assets/LightShipHUB/Editor/Textures/UIAssets/NianticLogo.png");
+    width:58px;
+    height:86px;
+    position: absolute;
+    margin-top: 97px;
+    margin-left: 630px;
+}
+#aboutus Label.subtitle, #aboutus Label.description {
+    width:550px;
+    white-space: normal;
+}
+.description {
+    font-size: 16px;
+    height: auto;
+    -unity-font: resource("Assets/LightShipHUB/Editor/Fonts/Gilroy-Regular.ttf");
+    color: rgb(200,200,200);
+    padding-left:30px;
+    padding-bottom: 20px;
+    
+}
+#content{
+    width:730px;
+    height:674px;
+    flex-direction: row;
+}
+#content Box {
+}
+#content Label.description, #content Label.name {
+    white-space: normal;
+}
+#tutorials, #projects, #aboutus,#help {
+    width:730px;
+    height:674px;
+    flex-direction: row;
+}
+#help Box.grid
+{
+    flex-direction: row;
+}
+.hide {
+    display:none;
+}
+Button {
+    border-width: 1px;
+    border-color: white;
+    border-radius: 0px;
+    margin:20px;
+    padding: 10px;
+    font-size: 12px;
+    width:120px;
+    cursor: link;
+}
+/* #help Label.helpBtn,  */
+#help Box.helpBox, 
+#aboutus Label.helpBtn {
+    border-width: 1px;
+    border-color: white;
+    border-radius: 0px;
+    margin:20px;
+    padding: 10px;
+    font-size: 12px;
+    width:120px;
+    cursor: link;
+}
+#aboutus Label.helpBtn {
+    margin-left:40px;
+}
+#help Box.helpBox {
+/* #help Box.helpBtn,
+#help Label.helpBtn { */
+    width: 40%;
+    height: 200px;
+    padding:30px;
+    /* font-size: 24px; */
+    /* white-space: normal; */
+    border-color: rgba(255,255,255,0.3);
+    /* -unity-text-align: upper-left; */
+}
+
+#help Label.helpBtn {
+        width: 100%;
+        cursor: link;
+        /* padding:10px; */
+        font-size: 24px;
+        white-space: normal;
+        /* border-color: rgba(255,255,255,0.3); */
+        -unity-text-align: upper-left;
+    }
+#help Box.helpBox:hover {
+    border-color: rgba(255,255,255,1);
+}
+#help {
+}
+.arrow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-self: flex-end;
+    cursor: link;
+    background-image:resource("Assets/LightShipHUB/Editor/Textures/UIAssets/arrow.png");
+}
+.tutorial, .project {
+    width: 150px;
+    height: 230px;
+    margin-left: 20px;
+    margin-left: 20px;
+    flex-direction: column;
+    color:gray;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    font-size: 15px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+.project {
+    width: 300px;
+}
+.tutorial Image.image, .project Image.image {
+    width: 150px;
+    height: 230px;
+    flex-direction: row;
+    border-radius: 15px;
+    cursor: link;
+    background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_grad.png");
+    position:absolute;
+    display: none;
+}
+.project Image.image {
+    width: 300px;
+}
+.tutorial Label, .project Label {
+    font-size: 16px;
+    width: 150px;
+}
+.tutorial .level, .project .level {
+    font-size: 10px;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 12px;
+    padding:5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    -unity-text-align: middle-center;
+    cursor: link;
+    color:white;
+    height: 24px;
+    margin-left:10px;
+    position: absolute;
+    margin-top: 190px;
+    width: auto;
+    display: none;
+}
+
+.tutorial .new, .project .new {
+    font-size: 9px;
+    border-width: 1px;
+    background-color: rgb(255,71,19);
+    border-radius: 8px;
+    padding:5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    align-self: flex-end;
+    -unity-text-align: middle-center;
+    cursor: link;
+    color:white;
+    height: 18px;
+    position: absolute;
+    margin:10px;
+    right:5px;
+    width: auto;
+}
+.tutorial .name, .project .name {
+    margin-top: 240px;
+    position:absolute;
+    font-size: 12px;
+    cursor: link;
+}
+.tutorial .alt, .project .alt {
+    margin-top: 135px;
+    white-space: normal;
+    position:absolute;
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 12px;
+    color: rgb(255,255,255);
+    cursor: link;
+    display: none;
+}
+.tutorial:hover .alt,.tutorial:hover .level,.tutorial:hover Image.image, .project:hover .alt, .project:hover .level, .project:hover Image.image {
+    display:flex;
+}
+.tutorial.comingsoon, .project.comingsoon {
+    opacity: 0.5;
+}
+
+#tuto1_1 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_1_1_Anchor_Placement.png"); }
+#tuto1_2 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_1_2_Anchor_Placement_Without_Planes.png"); }
+#tuto1_3 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_1_3_Plane_Tracker.png"); }
+#tuto1_4 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_1_4_Image_Detection.png"); }
+
+#tuto2_1 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_1_Depth_Texture.png"); }
+#tuto2_2 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_2_Occlusion.png"); }
+#tuto2_3 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_3_Realtime_Meshing.png"); }
+#tuto2_4 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_4_Mesh_Collider.png"); }
+#tuto2_5 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_5_Meshing_Shaders.png"); }
+#tuto2_6 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_6_Mesh_Garden.png"); }
+#tuto2_7 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_7_Advanced_Physics.png"); }
+#tuto2_8 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_2_8_Character_Controller.png"); }
+
+#tuto3_1 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_3_1_Segmentation_Query.png"); }
+#tuto3_2 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_3_2_Mask_Segmentation.png"); }
+#tuto3_3 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_3_2_Mask_Segmentation.png"); }
+
+#tuto4_1 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_4_1_Shared_Object_Interaction.png"); }
+
+#tuto5_1 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_5_1_VPS_Coverage.png"); }
+#tuto5_2 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_5_2_VPS_Coverage_List.png"); }
+#tuto5_3 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_5_3_Wayspot_Anchors.png"); }
+#tuto5_4 { background-image:resource("Assets/LightShipHUB/Editor/Textures/TemplateCovers/Thumb_5_4_Leave_Messages.png"); }
+
+#project_ARHockey { background-image:resource("Assets/LightShipHUB/Editor/Textures/SamplesCovers/Thumb_ARHocker.png"); }

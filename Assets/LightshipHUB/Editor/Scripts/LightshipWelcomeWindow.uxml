@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+>
+    <engine:Image class="topGradient"/>
+    <engine:Box name="side-view" class="root">
+        <engine:Box name="sections">
+            <engine:Image name="logo"/>
+            <engine:Box name="welcome-sections">
+                <engine:Label name="menuTemplates" class="menuItem active" text="Templates" />
+                <engine:Label name="menuProjects" class="menuItem" text="Sample Projects" />
+                <engine:Label name="menuAbout" class="menuItem" text="About Lightship" />
+                <engine:Label name="menuHelp" class="menuItem" text="Help" />
+                <engine:Label name="version" class="" text="v2.20.6" />
+            </engine:Box>
+        </engine:Box>
+        <engine:Box name="content">
+            <engine:ScrollView name="tutorials">
+                <engine:Label name="basic" class="title" text="Templates gallery" />    
+                <engine:Label name="basic" class="subtitle" text="AR Fundamentals" />
+                <engine:Label name="basic" class="description" text="Demonstrates basic AR functions like plane detection, hit-testing, and object placement." />
+                <engine:Box class="grid">
+                    <engine:Box name="tuto1_1" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Static object placed over a surface."/>
+                        <engine:Label class="level" text="Beginner"/>
+                        <engine:Label class="name" text="Object Placement"/>
+                    </engine:Box>
+                    <engine:Box name="tuto1_2" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Static object placed anywhere."/>
+                        <engine:Label class="level" text="Beginner"/>
+                        <engine:Label class="name" text="Object Placement Without Planes"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                    <engine:Box name="tuto1_3" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Object interacting with an AR plane."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Plane Tracker"/>
+                    </engine:Box>
+                    <engine:Box name="tuto1_4" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Detect an image tracker and instantiate an object on top."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Image Detection"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                </engine:Box>
+                <engine:Label name="basic" class="subtitle" text="Contextual Awareness" />
+                <engine:Label class="description" text="Learn how to map an environment to enable more realistic depth, occlusions, object placement and movement." />
+                <engine:Box class="grid">
+                    <engine:Box name="tuto2_1" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Occlude your objects using the Depth Texture."/>
+                        <engine:Label class="level" text="Beginner"/>
+                        <engine:Label class="name" text="Texture Occlusion"/>
+                    </engine:Box>
+                    <engine:Box name="tuto2_2" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Occude your objects with the Real World Mesh."/>
+                        <engine:Label class="level" text="Beginner"/>
+                        <engine:Label class="name" text="Mesh Occlusion"/>
+                    </engine:Box>
+                    <engine:Box name="tuto2_3" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Place objects using the Real World Mesh."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Realtime Meshing"/>
+                    </engine:Box>
+                    <engine:Box name="tuto2_4" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Interact with physics and the Real World Mesh."/>
+                        <engine:Label class="level" text="Expert"/>
+                        <engine:Label class="name" text="Mesh Collider"/>
+                    </engine:Box>
+                    <engine:Box name="tuto2_5" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Apply shaders to the Real World Mesh."/>
+                        <engine:Label class="level" text="Expert"/>
+                        <engine:Label class="name" text="Meshing Shaders"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                    <engine:Box name="tuto2_6" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Place multiple custom objects in the Real World Mesh."/>
+                        <engine:Label class="level" text="Expert"/>
+                        <engine:Label class="name" text="Mesh Garden"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                    <engine:Box name="tuto2_7" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Customize advanced physics behaviours for your game objects."/>
+                        <engine:Label class="level" text="Expert"/>
+                        <engine:Label class="name" text="Advanced Physics"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+
+                    <engine:Box name="tuto2_8" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Spawn an object/player gameobject to move around."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Character Controller"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                </engine:Box>
+                <engine:Label name="basic" class="description" text="Segment and apply masks to different elements in the environment." />
+                <engine:Box class="grid">
+                    <engine:Box name="tuto3_1" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Apply textures to segmentation queries."/>
+                        <engine:Label class="level" text="Beginner"/>
+                        <engine:Label class="name" text="Semantic Segmentation"/>
+                    </engine:Box>
+                    <engine:Box name="tuto3_3" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Mask AR objects with segmentation layers."/>
+                        <engine:Label class="level" text="Expert"/>
+                        <engine:Label class="name" text="Semantic Masking"/>
+                    </engine:Box>
+                </engine:Box> 
+                <engine:Label name="basic" class="subtitle" text="Shared AR" />
+                <engine:Label name="basic" class="description" text="Enable multiple users to interact with objects in a shared AR session." />
+                <engine:Box class="grid">
+                    <engine:Box name="tuto4_1" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Interact with a shared object placed in the AR world."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Shared Object Interaction"/>
+                    </engine:Box>
+                </engine:Box>
+                <engine:Label name="basic" class="subtitle" text="Visual Positioning System" />
+                <engine:Label name="basic" class="description" text="Intro to creating location based persistent experiences with VPS." />
+                <engine:Box class="grid">
+                    <engine:Box name="tuto5_1" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Load the main Wayspot target."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="VPS Coverage Image"/>
+                    </engine:Box>
+                    <engine:Box name="tuto5_2" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Find Wayspots near your area."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="VPS Coverage List"/>
+                    </engine:Box>
+                    <engine:Box name="tuto5_3" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Create and Restore Wayspot Anchors."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Wayspot Anchors"/>
+                    </engine:Box>
+                    <engine:Box name="tuto5_4" class="tutorial">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Create and restore anchors containing messages for other players."/>
+                        <engine:Label class="level" text="Intermediate"/>
+                        <engine:Label class="name" text="Leave messages"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                </engine:Box>
+            </engine:ScrollView>
+
+            <engine:ScrollView name="projects" class="hide">
+                <engine:Label name="basic" class="title" text="Sample Projects" />    
+                <engine:Label name="basic" class="subtitle" text="Multiplayer Experiences" />
+                <engine:Label name="basic" class="description" text="Multiplayer games/experienes in the Realworld Metaverse." />
+                <engine:Box class="grid">
+                    <engine:Box name="project_ARHockey" class="project">
+                        <engine:Image class="image" />
+                        <engine:Label class="alt" text="Create a multiplayer game in the Realworld Metaversa."/>
+                        <engine:Label class="level" text="Advanced"/>
+                        <engine:Label class="name" text="Multiplayer AR Hockey"/>
+                        <engine:Label class="new" text="New"/>
+                    </engine:Box>
+                </engine:Box>
+            </engine:ScrollView>
+
+            <engine:ScrollView name="aboutus" class="hide">
+                <engine:Label class="title" text="Introducing Niantic Lightship" />   
+                <engine:Label name="nianticlogo" />
+                <engine:Label class="subtitle" text="We are empowering creators to seamlessly and realistically bring virtual content and experiences into the real world, today." />    
+                <engine:Label class="description" text="Niantic Lightship supports hundreds of millions of users through a client platform that sets and standard for AR, using segmented semantics, mapping, and multiplayer. " />    
+                <engine:Label class="description" text="As part of our long term vision for Lightship ARDK, we are building a 3D map of the world using our Virtual Positioning System (VPS) and advanced tools to power a whole new type of contextual content at a global scale to meet the world where they currently are." />
+
+                <engine:Label name="learn_more" class="helpBtn" text="LEARN MORE" />
+            </engine:ScrollView>
+
+
+            <engine:ScrollView name="help" class="hide">
+                <engine:Label class="title" text="Online Support" />
+                <engine:Box class="grid">
+                    <engine:Box name="help_iosbuild" class="helpBox">
+                        <engine:Image class="arrow" />
+                        <engine:Label name="" class="helpBtn" text="IOS Build Process" />
+                    </engine:Box>
+                    <engine:Box name="help_androidbuild" class="helpBox">
+                        <engine:Image class="arrow" />
+                        <engine:Label name="" class="helpBtn" text="Android Build Process" />
+
+                    </engine:Box>
+                    <engine:Box name="help_gettingstarted" class="helpBox">
+                        <engine:Image class="arrow" />
+                        <engine:Label name="" class="helpBtn" text="Getting started Guide" />
+
+                    </engine:Box>
+                    <engine:Box name="help_documentation" class="helpBox">
+                        <engine:Image class="arrow" />
+                        <engine:Label name="" class="helpBtn" text="Lightship Documentation" />
+
+                    </engine:Box>
+                </engine:Box>
+            </engine:ScrollView>
+            
+        </engine:Box>
+    </engine:Box>
+</engine:UXML>

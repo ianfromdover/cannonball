@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cabe4f37b454aa1aa61155165bcf4af, type: 3}
+  m_Name: ARHockeyManifest
+  m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 114491438834899396, guid: 165c90a9b4cbb422691d66497cd75270, type: 3}
+  - {fileID: 114351197916325302, guid: e21a8bbf778f848548da7f06d0824f5c, type: 3}
+  - {fileID: 114199480720431844, guid: 0042d550c6ba54199bee618284dbb2e9, type: 3}

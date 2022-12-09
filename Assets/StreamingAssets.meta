@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/StreamingAssets.meta
+guid: ef7582896d74d4e47b966475ce55d9ae
+========
+guid: 5bc39fc3c80c241d1b774f6bda59557d
+>>>>>>>> main:Assets/ARDK/Editor/Extensions/Meshing.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
