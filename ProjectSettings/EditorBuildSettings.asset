@@ -5,9 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/B_Scenes/Sandbox.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
+  - enabled: 1
+    path: Assets/B_Scenes/ARDK test.unity
+    guid: ee81d9b8dc1aa1f41af2787b421e02fd
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: bc9ceb4f09c636a469ccefd45bdff14c,
+      type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
-      guid: 398d5adf06b2c1e4b8e119db8f87965a, type: 2}
+      guid: 560312fd16c282143bb9955090a51404, type: 2}

@@ -1,4 +1,5 @@
 using Niantic.ARDK.Utilities.Input.Legacy;
+using TMPro;
 using UnityEngine;
 
 public class ProjectileShooter : MonoBehaviour
@@ -8,6 +9,9 @@ public class ProjectileShooter : MonoBehaviour
 
     [SerializeField]
     private GameObject[] projectilesPrefabs;
+
+    [SerializeField]
+    private TextMeshProUGUI label;
 
     [SerializeField]
     private float force = 200.0f;
@@ -28,6 +32,7 @@ public class ProjectileShooter : MonoBehaviour
     {
         var prefab = projectilesPrefabs[Random.Range(0, projectilesPrefabs.Length)];
         var projectile = Instantiate(prefab, arCamera.transform.position, Quaternion.identity);
+        label.text = prefab.name;
 
         var projectileRigidBody = projectile.GetComponent<Rigidbody>();
         projectileRigidBody.AddForce(arCamera.transform.forward * force);
