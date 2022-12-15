@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawProjection : MonoBehaviour
 {
-    [SerializeField] private int maxPointsOnLine = 50;
+    [SerializeField] private int maxPointsOnLine = 40;
     [SerializeField] private float timeBetweenPoints = 0.1f;
     [SerializeField] private LayerMask collidableLayers; // layers that stop the line from being drawn
 
