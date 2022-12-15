@@ -1,8 +1,8 @@
-# Bowmaster9000
+# Cannonball!
 
-An AR archery game for Android using Lightship ARDK
+A simple AR target shooting game for Android using Lightship ARDK
 
-The player pulls the arrow back and releases it on the target board.
+Shoot cannonballs at targets on a point of interest.
 Incorporates Lightship VPS to place a target board without an image marker on a point of interest.
 
 # Versions and Packages
@@ -15,5 +15,6 @@ Please ensure that your Android device meets the [minimum device requirements to
 
 # Asset Credits
 
-Models are from Sketchfab, sounds from Freesound
-- to add
+- [Hand Painted Cannon model](https://skfb.ly/oopWA) by carlosbarrera_10, licensed under CC Attribution
+- [Cannon Shot sound](https://freesound.org/people/qubodup/sounds/187767/) by qubodup, licensed under CC0
+- [Screen shake script and explosion particle effect](https://www.youtube.com/watch?v=RnEO3MRPr5Y) by Adam Konig

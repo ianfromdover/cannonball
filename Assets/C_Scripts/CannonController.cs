@@ -13,6 +13,8 @@ public class CannonController : MonoBehaviour
     [SerializeField] private GameObject cannonball;
     [SerializeField] private Transform cannonBarrel;
     
+    [SerializeField] private AudioSource shotSound;
+    
     void Update()
     {
         // aim the cannon using arrow keys
@@ -44,6 +46,7 @@ public class CannonController : MonoBehaviour
             // add explosion and screen shake
             Destroy(Instantiate(explosion, startPos, startRot), 2);
             ScreenShakeAnim.Shake();
+            shotSound.Play();
         }
     }
 }
