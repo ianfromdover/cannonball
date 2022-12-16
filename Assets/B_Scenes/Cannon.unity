@@ -591,6 +591,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1718537122647214549, guid: d3cd7d1317508b44ea857143562e797a,
+        type: 3}
+      propertyPath: scoreRegionsAscendingPoints.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7421947065309635212, guid: d3cd7d1317508b44ea857143562e797a,
         type: 3}
       propertyPath: m_RootOrder
@@ -599,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 7421947065309635212, guid: d3cd7d1317508b44ea857143562e797a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.54
       objectReference: {fileID: 0}
     - target: {fileID: 7421947065309635212, guid: d3cd7d1317508b44ea857143562e797a,
         type: 3}
