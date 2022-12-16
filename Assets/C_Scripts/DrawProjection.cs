@@ -29,7 +29,7 @@ public class DrawProjection : MonoBehaviour
             Vector3 nextPos = startPos + t * startVel;
 
             // check if this point collides and stop rendering line if is does
-            if (Physics.OverlapSphere(nextPos, 2, collidableLayers).Length > 0)
+            if (Physics.OverlapSphere(nextPos, 0.2f, collidableLayers).Length > 0)
             {
                 _lineRenderer.positionCount = linePositions.Count;
                 break;

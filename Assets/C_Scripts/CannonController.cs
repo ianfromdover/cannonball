@@ -14,6 +14,7 @@ public class CannonController : MonoBehaviour
     [SerializeField] private Transform cannonBarrel;
     
     [SerializeField] private AudioSource shotSound;
+    [SerializeField] private ScreenShakeAnim _screenShakeAnim;
     
     void Update()
     {
@@ -45,7 +46,7 @@ public class CannonController : MonoBehaviour
             
             // add explosion and screen shake
             Destroy(Instantiate(explosion, startPos, startRot), 2);
-            ScreenShakeAnim.Shake();
+            _screenShakeAnim.Shake();
             shotSound.Play();
         }
     }

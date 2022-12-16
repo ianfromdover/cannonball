@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class ScreenShakeAnim : MonoBehaviour
 {
-    private static float shakeAmount = 3;
-    private static float currShakeAmount = 0;
-    Vector3 cameraStartPos;
+    [SerializeField] private float shakeAmount = 0.3f;
+    private float _currShakeAmount = 0;
+    Vector3 _cameraStartPos;
 
     void Start()
     {
-        cameraStartPos = transform.position;
+        _cameraStartPos = transform.position;
     }
 
     void Update()
     {
-        currShakeAmount = Mathf.Lerp(currShakeAmount, 0, 0.02f);
-        transform.position = cameraStartPos + Random.onUnitSphere * currShakeAmount;
+        _currShakeAmount = Mathf.Lerp(_currShakeAmount, 0, 0.02f);
+        transform.position = _cameraStartPos + Random.onUnitSphere * _currShakeAmount;
     }
 
-    public static void Shake()
+    public void Shake()
     {
-        currShakeAmount = shakeAmount;
+        _currShakeAmount = shakeAmount;
     }
 }
