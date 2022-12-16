@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScreenShakeAnim : MonoBehaviour
 {
-    [SerializeField] private float shakeAmount = 0.3f;
+    [SerializeField] private float shakeAmount = 0.1f;
     private float _currShakeAmount = 0;
     Vector3 _cameraStartPos;
 

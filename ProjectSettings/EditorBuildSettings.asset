@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/B_Scenes/Cannon.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   - enabled: 0
@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/ARDKExamples/WayspotAnchors/WayspotAnchors.unity
     guid: 3477628c2e7624b9386c43bf7c008d15
-  - enabled: 1
+  - enabled: 0
     path: Assets/ARDKExamples/VpsCoverage/VpsCoverageExample.unity
     guid: 138112bde976c40c6833cbf125ab73e0
   m_configObjects:

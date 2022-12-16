@@ -1,13 +1,17 @@
+using System;
 using UnityEngine;
 
 public class CannonController : MonoBehaviour
 {
-    [SerializeField] public Transform shotSource;
-    [SerializeField] public float shotSpeed = 5;
+    public Transform shotSource;
+    public float shotPower = 5;
+    public Joystick joystickAim; // 2 deg of freedom, both from -1..1
+    public EventChannel onShot;
     
     [SerializeField] private float rotationSpeed = 1;
-    [SerializeField] private float maxAimAngle = 70;
-    [SerializeField] private float minAimAngle = 0;
+    [SerializeField] private float maxAimVertAngle = 70;
+    [SerializeField] private float minAimVertAngle = 0;
+    [SerializeField] private float maxAimHorizAngle = 60;
 
     [SerializeField] private GameObject explosion;
     [SerializeField] private GameObject cannonball;
@@ -15,39 +19,50 @@ public class CannonController : MonoBehaviour
     
     [SerializeField] private AudioSource shotSound;
     [SerializeField] private ScreenShakeAnim _screenShakeAnim;
-    
+
+    private void Start()
+    {
+        onShot.OnChange += Shoot;
+    }
+
     void Update()
     {
         // aim the cannon using arrow keys
-        float rotHoriz = Input.GetAxis("Horizontal");
-        float rotVert = Input.GetAxis("Vertical");
+        float rotHoriz = joystickAim.Horizontal;
+        float rotVert = -joystickAim.Vertical; // negative for those used to pilot controls
         
         // rotate cannon base
-        transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles
-            + new Vector3(0, rotHoriz * rotationSpeed, 0));
+        float horizAimAngle = Mathf.Clamp(transform.localRotation.eulerAngles.y 
+                                     + rotHoriz * rotationSpeed, 
+                                     -maxAimHorizAngle, maxAimHorizAngle);
+        transform.localRotation = Quaternion.Euler(new Vector3(0, horizAimAngle, 0));
         
         // rotate cannon barrel
-        float aimAngle = Mathf.Clamp(cannonBarrel.localRotation.eulerAngles.z 
+        float vertAimAngle = Mathf.Clamp(cannonBarrel.localRotation.eulerAngles.z 
                                      + rotVert * rotationSpeed, 
-                                     minAimAngle, maxAimAngle);
-        cannonBarrel.localRotation = Quaternion.Euler(new Vector3(0, 0, aimAngle));
-        // TODO: perhaps the shotSpeed should be varied instead. this is a UX issue
+                                     minAimVertAngle, maxAimVertAngle);
+        cannonBarrel.localRotation = Quaternion.Euler(new Vector3(0, 0, vertAimAngle));
+    }
 
-        // shoot cannonball
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Vector3 startPos = shotSource.position;
-            Quaternion startRot = shotSource.rotation;
+    private void OnDestroy()
+    {
+        onShot.OnChange -= Shoot;
+    }
+
+    private void Shoot(float power)
+    {
+        float adjustedPower = -(power - 1) / 2; // TODO: map -1..1 to 1..0
+        Vector3 startPos = shotSource.position;
+        Quaternion startRot = shotSource.rotation;
             
-            // TODO: use objectPooling
-            GameObject newBall = Instantiate(cannonball, startPos, startRot);
-            newBall.GetComponent<Rigidbody>().velocity = shotSource.transform.up * shotSpeed;
-            Destroy(newBall, 10);
+        // TODO: use objectPooling
+        GameObject newBall = Instantiate(cannonball, startPos, startRot);
+        newBall.GetComponent<Rigidbody>().velocity = shotSource.transform.up * (shotPower * adjustedPower);
+        Destroy(newBall, 10);
             
-            // add explosion and screen shake
-            Destroy(Instantiate(explosion, startPos, startRot), 2);
-            _screenShakeAnim.Shake();
-            shotSound.Play();
-        }
+        // add explosion and screen shake
+        Destroy(Instantiate(explosion, startPos, startRot), 2);
+        _screenShakeAnim.Shake();
+        shotSound.Play();
     }
 }

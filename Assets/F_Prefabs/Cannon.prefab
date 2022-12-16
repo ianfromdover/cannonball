@@ -235,11 +235,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSource: {fileID: 705677684384946029}
-  shotSpeed: 10
+  shotPower: 5
+  joystickAim: {fileID: 0}
+  joystickPower: {fileID: 0}
   rotationSpeed: 0.5
   maxAimAngle: 70
   minAimAngle: 0
-  explosion: {fileID: 2771661109152740402, guid: 53bc51a9a0aa8ce47b1d4b40b902099c,
+  explosion: {fileID: 8033965413074878699, guid: 1eec8a6a668caa6408da39030fbefe0e,
     type: 3}
   cannonball: {fileID: 5342142905985098469, guid: 5f81b39ff6c8b084a9f9465612c81c87,
     type: 3}

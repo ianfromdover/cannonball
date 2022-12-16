@@ -334,6 +334,16 @@ PrefabInstance:
       propertyPath: RuntimeEnvironment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8382433175505534547, guid: fcfe03fa8fa9e46e8886ff6c2cfee366,
+        type: 3}
+      propertyPath: SpoofLocation.lat_degrees
+      value: 1.29669
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382433175505534547, guid: fcfe03fa8fa9e46e8886ff6c2cfee366,
+        type: 3}
+      propertyPath: SpoofLocation.lng_degrees
+      value: 103.77877
+      objectReference: {fileID: 0}
     - target: {fileID: 8382433175505534549, guid: fcfe03fa8fa9e46e8886ff6c2cfee366,
         type: 3}
       propertyPath: m_RootOrder
