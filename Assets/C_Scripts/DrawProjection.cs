@@ -21,7 +21,7 @@ public class DrawProjection : MonoBehaviour
         _lineRenderer.positionCount = maxPointsOnLine;
         List<Vector3> linePositions = new List<Vector3>();
         Vector3 startPos = _cannonController.shotSource.position;
-        Vector3 startVel = _cannonController.shotSource.up * _cannonController.shotPower;
+        Vector3 startVel = _cannonController.shotSource.up * _cannonController.currShotPower;
         
         // estimate the projectile motion of the cannonball
         for (float t = 0; t < maxPointsOnLine; t += timeBetweenPoints)

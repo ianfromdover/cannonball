@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    public EventChannel onRelease;
+    public EventChannelShot onRelease;
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
@@ -134,9 +134,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
+        onRelease.Publish(input.y);
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
-        onRelease.Publish();
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)

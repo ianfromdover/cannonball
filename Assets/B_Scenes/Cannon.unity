@@ -275,8 +275,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnShotPointerUp
       value: 
-      objectReference: {fileID: 11400000, guid: a1083b4fc3bf97d428d12789ef5d4e3b,
-        type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!1001 &250890776
