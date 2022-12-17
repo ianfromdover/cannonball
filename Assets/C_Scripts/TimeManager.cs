@@ -8,12 +8,12 @@ using UnityEngine.UI;
 /// @author Ian
 /// @author referenced https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/j:w
 /// </summary>
-public class Timer : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
     public EventChannel startTimer;
     public EventChannel stopTimer;
     public EventChannel resetTimer;
-    public string timerButton;
+    public string timerTriggerButton;
     public float durationInMinutes = 0.5f;
     private float _secsRemaining;
     private bool _timerIsRunning = false;
@@ -51,9 +51,9 @@ public class Timer : MonoBehaviour
             }
         }
         
-        if (Input.GetButtonDown(timerButton)) 
+        // if (Input.GetButtonDown(timerTriggerButton)) 
         {
-            ControlTime(); // start, stop or reset time
+            // ControlTime(); // start, stop or reset time
         }
     }
 

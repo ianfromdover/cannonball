@@ -1,6 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Draws the path that the cannonball will take when shot
+/// </summary>
 public class DrawProjection : MonoBehaviour
 {
     [SerializeField] private int maxPointsOnLine = 40;
@@ -18,6 +22,14 @@ public class DrawProjection : MonoBehaviour
 
     void Update()
     {
+        if (!_cannonController.IsShooting())
+        {
+            // don't draw the line
+            _lineRenderer.positionCount = 0;
+            _lineRenderer.SetPositions(Array.Empty<Vector3>());
+            return;
+        }
+        
         _lineRenderer.positionCount = maxPointsOnLine;
         List<Vector3> linePositions = new List<Vector3>();
         Vector3 startPos = _cannonController.shotSource.position;

@@ -235,19 +235,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSource: {fileID: 705677684384946029}
-  shotPower: 5
   joystickAim: {fileID: 0}
   joystickPower: {fileID: 0}
+  onShot: {fileID: 11400000, guid: a1083b4fc3bf97d428d12789ef5d4e3b, type: 2}
+  shotPowerMultiplier: 10
+  currShotPower: 0
   rotationSpeed: 0.5
-  maxAimAngle: 70
-  minAimAngle: 0
+  maxAimVertAngle: 70
+  minAimVertAngle: 0
+  maxAimHorizAngle: 60
   explosion: {fileID: 8033965413074878699, guid: 1eec8a6a668caa6408da39030fbefe0e,
     type: 3}
   cannonball: {fileID: 5342142905985098469, guid: 5f81b39ff6c8b084a9f9465612c81c87,
     type: 3}
   cannonBarrel: {fileID: 5377370519057607696}
   shotSound: {fileID: 9053353993694912797}
-  _screenShakeAnim: {fileID: 0}
+  screenShakeAnim: {fileID: 0}
 --- !u!114 &3273888417518526905
 MonoBehaviour:
   m_ObjectHideFlags: 0

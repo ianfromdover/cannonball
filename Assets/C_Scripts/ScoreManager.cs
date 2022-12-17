@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ScoreCounter : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
-    public EventChannel pointScored;
+    public EventChannelScore pointScored;
+    public EventChannel startTimer;
     public EventChannel stopTimer;
     public EventChannel resetTimer;
-    public EventChannel timeSlowed; // pigeon enters hoop
-    public EventChannel gunUnequipped; // pigeon hits ground
-    private List<Text> leaderboardValues = new List<Text>();
-    public Text scoreCounter;
+    private List<Text> leaderboardValues = new List<Text>(); // todo: just deprecate
+    public Text scoreCounter; // todo: old handheld score indicator
     public int score = 0;
     private int _highscore = 0;
     private bool _isCountingScore;
@@ -18,11 +17,13 @@ public class ScoreCounter : MonoBehaviour
     {
         scoreCounter.text = ZERO;
         pointScored.OnChange += AddPoint;
-        timeSlowed.OnChange += StartCountingScore; // when pigeon enters ring
-        stopTimer.OnChange += SaveScore;
+        startTimer.OnChange += StartCountingScore;
+        stopTimer.OnChange += StopCountingScore;
+        stopTimer.OnChange += SaveHighscore;
         resetTimer.OnChange += ResetScore;
-        gunUnequipped.OnChange += StopCountingScore;
         
+        // updates the score of all the leaderboards in the scene
+        // TODO: deprecate this. only 1 highscore.
         List<GameObject> tempLeaderboard = new List<GameObject>(GameObject.FindGameObjectsWithTag("Highscore"));
         tempLeaderboard.ForEach(t => leaderboardValues.Add(t.GetComponent<Text>()));
         leaderboardValues.ForEach(t => t.text = ZERO);
@@ -31,12 +32,16 @@ public class ScoreCounter : MonoBehaviour
     private void OnDestroy()
     {
         pointScored.OnChange -= AddPoint;
-        timeSlowed.OnChange -= StartCountingScore;
-        stopTimer.OnChange -= SaveScore;
+        startTimer.OnChange -= StartCountingScore;
+        stopTimer.OnChange -= StopCountingScore;
+        stopTimer.OnChange -= SaveHighscore;
         resetTimer.OnChange -= ResetScore;
-        gunUnequipped.OnChange -= StopCountingScore;
     }
 
+    /// <summary>
+    /// Enables collisions with targets to count score.
+    /// Only count score when the timer is running.
+    /// </summary>
     public void StartCountingScore()
     {
         _isCountingScore = true;
@@ -45,26 +50,25 @@ public class ScoreCounter : MonoBehaviour
     /// <summary>
     /// Disables the counting of score.
     /// Does not count score when timer is not running.
-    /// Or when the pigeon has not entered the hoop.
+    /// TODO: Or when the pigeon has not entered the hoop.
     /// </summary>
     public void StopCountingScore()
     {
         _isCountingScore = false;
     }
     
-    public void AddPoint()
+    public void AddPoint(int points)
     {
         if (_isCountingScore)
         {
-            score++;
+            score += points;
             scoreCounter.text = score + "";
-            gunUnequipped.Publish();
         }
     }
     /// <summary>
     /// Adds score to leaderboard after timer is done.
     /// </summary>
-    public void SaveScore()
+    public void SaveHighscore()
     {
         if (score > _highscore)
         {
@@ -74,7 +78,7 @@ public class ScoreCounter : MonoBehaviour
     }
     
     /// <summary>
-    /// Resets score on hand when timer is reset.
+    /// Resets score when timer is reset.
     /// </summary>
     public void ResetScore()
     {

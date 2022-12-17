@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 748087644097275488}
   - component: {fileID: 8575535327714946462}
   - component: {fileID: 56546287841277715}
-  m_Layer: 0
+  - component: {fileID: 6710060751202565305}
+  - component: {fileID: 2503722904058483632}
+  m_Layer: 6
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +85,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6710060751202565305
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268937237678965093}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 7f4332c155dcac14dba1872b118ea98f, type: 3}
+--- !u!114 &2503722904058483632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268937237678965093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44084792c81307b4a91d2bce06f6aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsWorth: 40
+  addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
 --- !u!1 &2091295308046595033
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +124,9 @@ GameObject:
   - component: {fileID: 4343893059400249614}
   - component: {fileID: 5246937322914836298}
   - component: {fileID: 7169205914936418795}
-  m_Layer: 0
+  - component: {fileID: 1810503860428545319}
+  - component: {fileID: 4928676327347164807}
+  m_Layer: 6
   m_Name: Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +198,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1810503860428545319
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091295308046595033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 7f4332c155dcac14dba1872b118ea98f, type: 3}
+--- !u!114 &4928676327347164807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091295308046595033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44084792c81307b4a91d2bce06f6aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsWorth: 50
+  addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
 --- !u!1 &4685525285875244671
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +237,9 @@ GameObject:
   - component: {fileID: 2568093601601465382}
   - component: {fileID: 5349777536642564813}
   - component: {fileID: 9002826041739570354}
-  m_Layer: 0
+  - component: {fileID: 8833159194511577265}
+  - component: {fileID: 4696717777655446202}
+  m_Layer: 6
   m_Name: Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,6 +311,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8833159194511577265
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685525285875244671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 7f4332c155dcac14dba1872b118ea98f, type: 3}
+--- !u!114 &4696717777655446202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685525285875244671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44084792c81307b4a91d2bce06f6aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsWorth: 20
+  addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
 --- !u!1 &5350795490568292041
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +350,9 @@ GameObject:
   - component: {fileID: 6940123805967413209}
   - component: {fileID: 265465995270009560}
   - component: {fileID: 7935123093986875348}
-  m_Layer: 0
+  - component: {fileID: 3832707551014112452}
+  - component: {fileID: 9042717651052265044}
+  m_Layer: 6
   m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,6 +424,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3832707551014112452
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350795490568292041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 7f4332c155dcac14dba1872b118ea98f, type: 3}
+--- !u!114 &9042717651052265044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350795490568292041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44084792c81307b4a91d2bce06f6aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsWorth: 30
+  addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
 --- !u!1 &7651068739286599696
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +463,9 @@ GameObject:
   - component: {fileID: 7018260612278276778}
   - component: {fileID: 6253816817508769039}
   - component: {fileID: 8155722104338753989}
-  m_Layer: 0
+  - component: {fileID: 3268268850447468981}
+  - component: {fileID: 7481641013602470257}
+  m_Layer: 6
   m_Name: White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,6 +537,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3268268850447468981
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651068739286599696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 7f4332c155dcac14dba1872b118ea98f, type: 3}
+--- !u!114 &7481641013602470257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651068739286599696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44084792c81307b4a91d2bce06f6aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsWorth: 10
+  addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
 --- !u!1 &9057664261847730035
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,8 +574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7421947065309635212}
-  - component: {fileID: 1718537122647214549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,23 +601,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1718537122647214549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9057664261847730035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44084792c81307b4a91d2bce06f6aa9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreRegionsAscendingPoints:
-  - {fileID: 7651068739286599696}
-  - {fileID: 4685525285875244671}
-  - {fileID: 5350795490568292041}
-  - {fileID: 268937237678965093}
-  - {fileID: 2091295308046595033}
-  lowestPoints: 10
-  increment: 10

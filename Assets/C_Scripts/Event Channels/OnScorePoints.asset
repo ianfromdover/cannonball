@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68daaf56d85cd6c41b7ec0d4ddb5bc2a, type: 3}
-  m_Name: OnShot
+  m_Script: {fileID: 11500000, guid: d228fcd00fe76cd4899d323a0e0b288a, type: 3}
+  m_Name: OnScorePoints
   m_EditorClassIdentifier: 
