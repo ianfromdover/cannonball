@@ -8,10 +8,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Score Event Channel", menuName = "Score Event Channel")]
 public class EventChannelScore : EventChannel
 {
-    public Action<int> OnChange;
+    public new Action<int> OnChange;
+    private int _scoreVal;
 
     public void Publish(int val)
     {
-        OnChange.Invoke(val);
+        _scoreVal = val;
+        OnChange.Invoke(_scoreVal);
     }
 }

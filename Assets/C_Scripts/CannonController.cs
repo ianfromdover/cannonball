@@ -62,7 +62,7 @@ public class CannonController : MonoBehaviour
     /// <returns>Whether the player is interacting with the power joystick</returns>
     public bool IsShooting()
     {
-        return joystickPower.Vertical == 0;
+        return joystickPower.Vertical != 0;
     }
     
     /// <summary>

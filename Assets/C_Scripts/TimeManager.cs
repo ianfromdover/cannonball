@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Implements a timer which displays the time remaining in mins and secs.
@@ -10,14 +10,14 @@ using UnityEngine.UI;
 /// </summary>
 public class TimeManager : MonoBehaviour
 {
+    [SerializeField] private float durationInMinutes = 0.5f;
+    public TextMeshProUGUI display;
+    public TextMeshProUGUI timeBtn;
     public EventChannel startTimer;
     public EventChannel stopTimer;
     public EventChannel resetTimer;
-    public string timerTriggerButton;
-    public float durationInMinutes = 0.5f;
     private float _secsRemaining;
     private bool _timerIsRunning = false;
-    public Text display;
     void Start()
     {
         // Set up text object on UI
@@ -50,11 +50,6 @@ public class TimeManager : MonoBehaviour
                 stopTimer.Publish();
             }
         }
-        
-        // if (Input.GetButtonDown(timerTriggerButton)) 
-        {
-            // ControlTime(); // start, stop or reset time
-        }
     }
 
     private void DisplayAsMinSec(float time)
@@ -84,12 +79,14 @@ public class TimeManager : MonoBehaviour
     private void StartTimer()
     {
         _timerIsRunning = true;
+        timeBtn.text = "Stop";
     }
     private void StopTimer()
     {
         _timerIsRunning = false;
         _secsRemaining = 0;
         display.text = "00:00";
+        timeBtn.text = "Reset";
     }
     
     private void ResetTimer()
@@ -97,5 +94,6 @@ public class TimeManager : MonoBehaviour
         _timerIsRunning = false;
         _secsRemaining = durationInMinutes * 60;
         DisplayAsMinSec(_secsRemaining);
+        timeBtn.text = "Start";
     }
 }

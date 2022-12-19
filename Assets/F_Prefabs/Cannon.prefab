@@ -238,7 +238,7 @@ MonoBehaviour:
   joystickAim: {fileID: 0}
   joystickPower: {fileID: 0}
   onShot: {fileID: 11400000, guid: a1083b4fc3bf97d428d12789ef5d4e3b, type: 2}
-  shotPowerMultiplier: 10
+  shotPowerMultiplier: 15
   currShotPower: 0
   rotationSpeed: 0.5
   maxAimVertAngle: 70

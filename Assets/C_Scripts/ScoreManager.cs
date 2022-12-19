@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
@@ -7,26 +8,23 @@ public class ScoreManager : MonoBehaviour
     public EventChannel startTimer;
     public EventChannel stopTimer;
     public EventChannel resetTimer;
-    private List<Text> leaderboardValues = new List<Text>(); // todo: just deprecate
-    public Text scoreCounter; // todo: old handheld score indicator
+    public TextMeshProUGUI highscoreDisplay;
+    public TextMeshProUGUI display;
     public int score = 0;
     private int _highscore = 0;
-    private bool _isCountingScore;
-    private static readonly string ZERO = "0";
+    private bool _isCountingScore = false;
+    private const string Zero = "0";
+    private const string HighscoreString = "Highscore: ";
     void Start()
     {
-        scoreCounter.text = ZERO;
         pointScored.OnChange += AddPoint;
         startTimer.OnChange += StartCountingScore;
         stopTimer.OnChange += StopCountingScore;
         stopTimer.OnChange += SaveHighscore;
         resetTimer.OnChange += ResetScore;
         
-        // updates the score of all the leaderboards in the scene
-        // TODO: deprecate this. only 1 highscore.
-        List<GameObject> tempLeaderboard = new List<GameObject>(GameObject.FindGameObjectsWithTag("Highscore"));
-        tempLeaderboard.ForEach(t => leaderboardValues.Add(t.GetComponent<Text>()));
-        leaderboardValues.ForEach(t => t.text = ZERO);
+        display.text = Zero;
+        highscoreDisplay.text = HighscoreString + Zero;
     }
 
     private void OnDestroy()
@@ -50,7 +48,6 @@ public class ScoreManager : MonoBehaviour
     /// <summary>
     /// Disables the counting of score.
     /// Does not count score when timer is not running.
-    /// TODO: Or when the pigeon has not entered the hoop.
     /// </summary>
     public void StopCountingScore()
     {
@@ -62,7 +59,7 @@ public class ScoreManager : MonoBehaviour
         if (_isCountingScore)
         {
             score += points;
-            scoreCounter.text = score + "";
+            display.text = score + "";
         }
     }
     /// <summary>
@@ -73,7 +70,7 @@ public class ScoreManager : MonoBehaviour
         if (score > _highscore)
         {
             _highscore = score;
-            leaderboardValues.ForEach(t => t.text = _highscore + "");
+            highscoreDisplay.text = HighscoreString + _highscore;
         }
     }
     
@@ -83,6 +80,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
-        scoreCounter.text = score + "";
+        display.text = score + "";
     }
 }
