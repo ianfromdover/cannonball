@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7770454602030544484
 Transform:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 672931070654810904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.51462364, y: -0.016792595, z: -0.5182721}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5377370519057607696}
@@ -169,7 +169,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -240,7 +240,7 @@ MonoBehaviour:
   onShot: {fileID: 11400000, guid: a1083b4fc3bf97d428d12789ef5d4e3b, type: 2}
   shotPowerMultiplier: 15
   currShotPower: 0
-  rotationSpeed: 0.5
+  rotationSpeed: 1.5
   maxAimVertAngle: 70
   minAimVertAngle: 0
   maxAimHorizAngle: 60
@@ -250,7 +250,7 @@ MonoBehaviour:
     type: 3}
   cannonBarrel: {fileID: 5377370519057607696}
   shotSound: {fileID: 9053353993694912797}
-  screenShakeAnim: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!114 &3273888417518526905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3cb99fff7b4194f879c671dacc5b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPointsOnLine: 15
-  timeBetweenPoints: 0.1
+  maxPointsOnLine: 35
+  timeBetweenPoints: 0.01
   collidableLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -280,7 +280,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9047cbfa5832ccb4fbed13e4bf9a0b62, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
