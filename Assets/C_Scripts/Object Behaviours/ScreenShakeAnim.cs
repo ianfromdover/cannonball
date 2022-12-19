@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// Camera-shaking script, placed on a normal camera.
+/// Used only in the cannon testing scene.
+/// For the shaking on the AR camera, see ARCameraController.cs
+/// </summary>
 public class ScreenShakeAnim : MonoBehaviour
 {
     [SerializeField] private float shakeAmount = 0.1f;

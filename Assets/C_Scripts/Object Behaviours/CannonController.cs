@@ -1,3 +1,4 @@
+using C_Scripts;
 using UnityEngine;
 
 /// <summary>
@@ -24,7 +25,7 @@ public class CannonController : MonoBehaviour
     private Vector3 cannonOrigRotation;
     
     [SerializeField] private AudioSource shotSound;
-    [SerializeField] private ScreenShakeAnim screenShakeAnim;
+    [SerializeField] private ARCameraController cameraController;
 
     private void Start()
     {
@@ -82,7 +83,7 @@ public class CannonController : MonoBehaviour
             
         // add explosion and screen shake
         Destroy(Instantiate(explosion, startPos, startRot), 2);
-        screenShakeAnim.Shake();
+        cameraController.Shake();
         shotSound.Play();
     }
 
