@@ -1132,7 +1132,7 @@ GameObject:
   - component: {fileID: 642599189}
   - component: {fileID: 642599188}
   m_Layer: 0
-  m_Name: shipovelay
+  m_Name: ShipOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1462,7 +1462,7 @@ PrefabInstance:
     - target: {fileID: 3987708088071560214, guid: d4a1a1231b7c9aa4eaf646de34813d93,
         type: 3}
       propertyPath: rotationSpeed
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3987708088071560214, guid: d4a1a1231b7c9aa4eaf646de34813d93,
         type: 3}
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac96dd7c9a2bd584ab79fcb31938acab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.005
+  shakeAmount: 0.03
 --- !u!224 &1052911043 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,

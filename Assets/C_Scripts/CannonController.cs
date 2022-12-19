@@ -38,7 +38,7 @@ public class CannonController : MonoBehaviour
         
         // rotate cannon base horizontally
         float rotHoriz = joystickAim.Horizontal;
-        float rotVert = -joystickAim.Vertical; // made negative to mimic pilot controls
+        float rotVert = joystickAim.Vertical;
         
         float newHorizAngle = transform.localRotation.eulerAngles.y + rotHoriz * rotationSpeed;
         float horizAimAngle = ClampAngle(newHorizAngle, -maxAimHorizAngle, maxAimHorizAngle);
