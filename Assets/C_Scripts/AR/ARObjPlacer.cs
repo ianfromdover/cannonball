@@ -19,7 +19,7 @@ namespace C_Scripts
   ///   A hit test is run from that location. If a plane is found, spawn a game object at the
   ///   hit location.
   /// </summary>
-  public class ARHitTester: MonoBehaviour
+  public class ARObjPlacer: MonoBehaviour
   {
     /// The camera used to render the scene. Used to get the center of the screen.
     public Camera Camera;
@@ -32,7 +32,7 @@ namespace C_Scripts
     public GameObject PlacementObjectPf;
 
     /// A list of placed game objects to be destroyed in the OnDestroy method.
-    private List<GameObject> _placedObjects = new List<GameObject>();
+    private GameObject _placedObject;
 
     /// Internal reference to the session, used to get the current frame to hit test against.
     private IARSession _session;
@@ -64,40 +64,22 @@ namespace C_Scripts
 
     private void ClearObjects()
     {
-      foreach (var placedObject in _placedObjects)
-      {
-        Destroy(placedObject);
-      }
-
-      _placedObjects.Clear();
+      Destroy(_placedObject);
     }
 
     private void Update()
     {
-      if (_session == null)
-      {
-        return;
-      }
-
-      if (PlatformAgnosticInput.touchCount <= 0)
-      {
-        return;
-      }
+      if (_session == null) return;
+      if (PlatformAgnosticInput.touchCount <= 0) return;
 
       var touch = PlatformAgnosticInput.GetTouch(0);
-      if (touch.phase == TouchPhase.Began)
-      {
-        TouchBegan(touch);
-      }
+      if (touch.phase == TouchPhase.Began) TouchBegan(touch);
     }
 
     private void TouchBegan(Touch touch)
     {
       var currentFrame = _session.CurrentFrame;
-      if (currentFrame == null)
-      {
-        return;
-      }
+      if (currentFrame == null) return;
 
       var results = currentFrame.HitTest
       (
@@ -109,21 +91,20 @@ namespace C_Scripts
 
       int count = results.Count;
       Debug.Log("Hit test results: " + count);
-
-      if (count <= 0)
-        return;
+      if (count <= 0) return;
 
       // Get the closest result
       var result = results[0];
 
       var hitPosition = result.WorldTransform.ToPosition();
 
-      _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
+      _placedObject = Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity);
       
       var anchor = result.Anchor;
       Debug.LogFormat
       (
-        "Spawning cube at {0} (anchor: {1})",
+        "Spawning {0} at {1} (anchor: {2})",
+        PlacementObjectPf.name,
         hitPosition.ToString("F4"),
         anchor == null
           ? "none"
