@@ -21,6 +21,7 @@ public class CannonController : MonoBehaviour
     [SerializeField] private GameObject explosion;
     [SerializeField] private GameObject cannonball;
     [SerializeField] private Transform cannonBarrel;
+    private Vector3 cannonOrigRotation;
     
     [SerializeField] private AudioSource shotSound;
     [SerializeField] private ScreenShakeAnim screenShakeAnim;
@@ -28,6 +29,7 @@ public class CannonController : MonoBehaviour
     private void Start()
     {
         onShot.OnChange += Shoot;
+        cannonOrigRotation = cannonBarrel.localRotation.eulerAngles;
     }
 
     void Update()
@@ -45,10 +47,10 @@ public class CannonController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(new Vector3(0, horizAimAngle, 0));
         
         // rotate cannon barrel vertically
-        float vertAimAngle = Mathf.Clamp(cannonBarrel.localRotation.eulerAngles.z 
-                                     + rotVert * rotationSpeed, 
-                                     minAimVertAngle, maxAimVertAngle);
-        cannonBarrel.localRotation = Quaternion.Euler(new Vector3(0, 0, vertAimAngle));
+        float vertAimAngle = Mathf.Clamp(cannonBarrel.localRotation.eulerAngles.z + rotVert * rotationSpeed, 
+            minAimVertAngle, maxAimVertAngle);
+        cannonBarrel.localRotation = Quaternion.Euler(new Vector3(cannonOrigRotation.x, 
+            cannonOrigRotation.y, cannonOrigRotation.z + vertAimAngle));
     }
 
     private void OnDestroy()
