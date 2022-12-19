@@ -9,17 +9,17 @@ using UnityEngine;
 
 namespace C_Scripts
 {
-  //! Helper script that spawns a cursor on a plane if it finds one
   /// <summary>
-  /// A sample class that can be added to a scene to demonstrate basic plane finding and hit
-  ///   testing usage. On each updated frame, a hit test will be applied from the middle of the
-  ///   screen and spawn a cursor if it finds a plane.
+  /// Helper script that finds planes and returns the result.
+  /// On each updated frame, applies a hit test from the middle of the screen.
+  /// Returns the result of the test.
   /// </summary>
   public class ARHitTestCenter: MonoBehaviour
   {
     /// The camera used to render the scene. Used to get the center of the screen.
     public Camera Camera;
     public IARHitTestResult Result { get; private set; }
+    public bool IsPlaneDetected { get; private set; }
     private IARSession _session;
 
     private void Start()
@@ -31,7 +31,7 @@ namespace C_Scripts
     {
       ARSessionFactory.SessionInitialized -= _SessionInitialized;
 
-      var session = _session;
+      var session = _session; 
       if (session != null) session.FrameUpdated -= _FrameUpdated;
     }
 
@@ -53,7 +53,11 @@ namespace C_Scripts
     private void _FrameUpdated(FrameUpdatedArgs args)
     {
       var camera = Camera;
-      if (camera == null) return;
+      if (camera == null)
+      {
+        IsPlaneDetected = false;
+        return;
+      }
 
       var viewportWidth = camera.pixelWidth;
       var viewportHeight = camera.pixelHeight;
@@ -74,7 +78,13 @@ namespace C_Scripts
           ARHitTestResultType.EstimatedVerticalPlane
         );
 
-      if (hitTestResults.Count == 0) return;
+      if (hitTestResults.Count == 0)
+      {
+        IsPlaneDetected = false;
+        return;
+      }
+
+      IsPlaneDetected = true;
       Result = hitTestResults[0];
     }
   }
