@@ -18,8 +18,7 @@ namespace Niantic.ARDK.Extensions
   /// Instantiates, updates, and removes GameObjects for each detected
   /// [PlaneAnchor](@ref Niantic.ARDK.AR.Anchors.IARPlaneAnchor]. This settings on this class
   /// are the ultimate authority on the used IARWorldTrackingConfiguration.PlaneDetection value.
-  public sealed class ARPlaneManager:
-    ARSessionListener
+  public sealed class ARPlaneManager: ARSessionListener
   {
     /// The object to spawn and update when a plane is detected.
     [SerializeField]
@@ -55,7 +54,7 @@ namespace Niantic.ARDK.Extensions
         }
       }
     }
-
+    
     protected override void DeinitializeImpl()
     {
       base.DeinitializeImpl();
@@ -187,7 +186,7 @@ namespace Niantic.ARDK.Extensions
       }
     }
 
-    private void ClearAllPlanes()
+    public void ClearAllPlanes()
     {
       foreach (var go in _planeLookup.Values)
         Destroy(go);

@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public EventChannelScore pointScored;
@@ -9,12 +7,12 @@ public class ScoreManager : MonoBehaviour
     public EventChannel stopTimer;
     public EventChannel resetTimer;
     public TextMeshProUGUI highscoreDisplay;
-    public TextMeshProUGUI display;
+    public TextMeshProUGUI finalScoreDisplay;
+    public TextMeshProUGUI scoreDisplay;
     public int score = 0;
     private int _highscore = 0;
     private bool _isCountingScore = false;
     private const string Zero = "0";
-    private const string HighscoreString = "Highscore: ";
     void Start()
     {
         pointScored.OnChange += AddPoint;
@@ -23,8 +21,9 @@ public class ScoreManager : MonoBehaviour
         stopTimer.OnChange += SaveHighscore;
         resetTimer.OnChange += ResetScore;
         
-        display.text = Zero;
-        highscoreDisplay.text = HighscoreString + Zero;
+        scoreDisplay.text = Zero;
+        highscoreDisplay.text = Zero;
+        finalScoreDisplay.text = Zero;
     }
 
     private void OnDestroy()
@@ -59,7 +58,7 @@ public class ScoreManager : MonoBehaviour
         if (_isCountingScore)
         {
             score += points;
-            display.text = score + "";
+            scoreDisplay.text = score + "";
         }
     }
     /// <summary>
@@ -67,10 +66,11 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     public void SaveHighscore()
     {
+        finalScoreDisplay.text = "" + score;
         if (score > _highscore)
         {
             _highscore = score;
-            highscoreDisplay.text = HighscoreString + _highscore;
+            highscoreDisplay.text = "" + _highscore;
         }
     }
     
@@ -80,6 +80,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
-        display.text = score + "";
+        scoreDisplay.text = score + "";
     }
 }

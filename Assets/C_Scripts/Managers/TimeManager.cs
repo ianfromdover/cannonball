@@ -12,10 +12,10 @@ public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float durationInMinutes = 0.5f;
     public TextMeshProUGUI display;
-    public TextMeshProUGUI timeBtn;
+    
     public EventChannel startTimer;
-    public EventChannel stopTimer;
     public EventChannel resetTimer;
+    public EventChannel timerStopped;
     private float _secsRemaining;
     private bool _timerIsRunning = false;
     void Start()
@@ -25,14 +25,14 @@ public class TimeManager : MonoBehaviour
         DisplayAsMinSec(_secsRemaining);
         
         startTimer.OnChange += StartTimer;
-        stopTimer.OnChange += StopTimer;
+        timerStopped.OnChange += StopTimer;
         resetTimer.OnChange += ResetTimer;
     }
 
     private void OnDestroy()
     {
         startTimer.OnChange -= StartTimer;
-        stopTimer.OnChange -= StopTimer;
+        timerStopped.OnChange -= StopTimer;
         resetTimer.OnChange -= ResetTimer;
     }
     void Update()
@@ -47,7 +47,7 @@ public class TimeManager : MonoBehaviour
             }
             else // timer ended naturally
             {
-                stopTimer.Publish();
+                timerStopped.Publish();
             }
         }
     }
@@ -66,27 +66,19 @@ public class TimeManager : MonoBehaviour
     /// </summary>
     public void ControlTime()
     {
-        if (_secsRemaining == 0 || _timerIsRunning)
-        {
-            resetTimer.Publish();
-        }
-        else
-        {
-            startTimer.Publish();
-        }
+        resetTimer.Publish();
+        startTimer.Publish();
     }
     
     private void StartTimer()
     {
         _timerIsRunning = true;
-        timeBtn.text = "Stop";
     }
     private void StopTimer()
     {
         _timerIsRunning = false;
         _secsRemaining = 0;
         display.text = "00:00";
-        timeBtn.text = "Reset";
     }
     
     private void ResetTimer()
@@ -94,6 +86,5 @@ public class TimeManager : MonoBehaviour
         _timerIsRunning = false;
         _secsRemaining = durationInMinutes * 60;
         DisplayAsMinSec(_secsRemaining);
-        timeBtn.text = "Start";
     }
 }

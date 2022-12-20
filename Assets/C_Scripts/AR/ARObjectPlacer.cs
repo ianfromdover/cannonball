@@ -1,5 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
@@ -24,10 +25,9 @@ namespace C_Scripts
     private IARSession _session;
     [SerializeField] private ARHitTestCenter hitTester;
     
-    private void Start()
-    {
-      ARSessionFactory.SessionInitialized += _SessionInitialized;
-    }
+    private void Start() { ARSessionFactory.SessionInitialized += _SessionInitialized; }
+
+    private void OnDisable() { DestroySpawnedCursor(); }
 
     private void OnDestroy()
     {

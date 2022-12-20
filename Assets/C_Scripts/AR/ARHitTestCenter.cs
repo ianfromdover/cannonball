@@ -20,11 +20,14 @@ namespace C_Scripts
     public Camera Camera;
     public IARHitTestResult Result { get; private set; }
     public bool IsPlaneDetected { get; private set; }
+    public bool DoPlanesExist { get; private set; }
+    public EventChannel anchorsFound;
     private IARSession _session;
 
     private void Start()
     {
       ARSessionFactory.SessionInitialized += _SessionInitialized;
+      DoPlanesExist = false;
     }
 
     private void OnDestroy()
@@ -84,6 +87,13 @@ namespace C_Scripts
         return;
       }
 
+      // the phone detected its first plane
+      if (!DoPlanesExist)
+      {
+        DoPlanesExist = true;
+        anchorsFound.Publish(); // allow the user to continue with the tutorial
+      }
+      
       IsPlaneDetected = true;
       Result = hitTestResults[0];
     }
