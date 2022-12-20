@@ -1,6 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
@@ -17,13 +16,17 @@ namespace C_Scripts
   {
     public GameObject previewObject;
     public GameObject placementObject; 
+    [SerializeField] private EventChannel tooCloseToTarget;
+    [SerializeField] private ARHitTestCenter hitTester;
+    [SerializeField] private float reminderDist = 0.5f;
+    
 
     /// A reference to the spawned cursor in the center of the screen.
     private GameObject _spawnedPreviewObject;
     /// A reference to the placed gameobject to be destroyed on OnDestroy.
     private GameObject _placedObject; // singleton
     private IARSession _session;
-    [SerializeField] private ARHitTestCenter hitTester;
+    private bool _isBeingDisabled = false; // flag for disabling preview object
     
     private void Start() { ARSessionFactory.SessionInitialized += _SessionInitialized; }
 
@@ -44,6 +47,7 @@ namespace C_Scripts
     {
       if (_spawnedPreviewObject == null) return;
 
+      _isBeingDisabled = true;
       Destroy(_spawnedPreviewObject);
       _spawnedPreviewObject = null;
     }
@@ -68,13 +72,21 @@ namespace C_Scripts
     private void _FrameUpdated(FrameUpdatedArgs args)
     {
       if (!hitTester.IsPlaneDetected) return;
+      if (_isBeingDisabled)
+      {
+        _isBeingDisabled = false;
+        return;
+      }
 
-      if (_spawnedPreviewObject == null) _spawnedPreviewObject = Instantiate
-      (
-        previewObject, 
-        Vector2.one, 
-        Quaternion.identity
-      );
+      if (_spawnedPreviewObject == null)
+      {
+        _spawnedPreviewObject = Instantiate
+        (
+          previewObject, 
+          Vector2.one, 
+          Quaternion.identity
+        );
+      }
 
       // Set the cursor object to the hit test result's position and its anchor's rotation
       var result = hitTester.Result;
@@ -82,6 +94,12 @@ namespace C_Scripts
       _spawnedPreviewObject.transform.rotation = result.Anchor != null
         ? result.Anchor.Transform.ToRotation()
         : Quaternion.identity;
+      
+      // remind player if the target is too close
+      if (result.Distance < reminderDist)
+      {
+        tooCloseToTarget.Publish();
+      }
     }
 
     public void PlaceObject()
