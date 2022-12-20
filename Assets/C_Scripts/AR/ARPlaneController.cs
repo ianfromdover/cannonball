@@ -1,10 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using Niantic.ARDK.Extensions;
 using UnityEngine;
 
-public class ARPlaneController : MonoBehaviour
+namespace C_Scripts.AR
 {
-    [SerializeField] private ARPlaneManager _arPlaneManager;
-    void OnDisable() { _arPlaneManager.ClearAllPlanes(); }
+    /// <summary>
+    /// Allows Unity's OnDisable lifecycle event to clear ARPlaneManager's planes.
+    /// This is because ARPlaneManager does not inherit from MonoBehaviour.
+    /// </summary>
+    public class ARPlaneController : MonoBehaviour
+    {
+        [SerializeField] private ARPlaneManager arPlaneManager;
+        void OnDisable()
+        {
+            arPlaneManager.ClearAllPlanes();
+        }
+    }
 }

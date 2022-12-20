@@ -1,4 +1,5 @@
 using System.Collections;
+using C_Scripts.Event_Channels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,23 @@ namespace C_Scripts.Managers
         public EventChannelScore pointScored;
         public string nextScene;
 
-        void Start() { pointScored.OnChange += StartGame; }
-        void OnDestroy() { pointScored.OnChange -= StartGame; }
-        public void StartGame(int unusedPoints) { StartCoroutine(StartGameRoutine()); }
+        void Start()
+        {
+            pointScored.OnChange += StartGame;
+        }
+
+        void OnDestroy()
+        {
+            pointScored.OnChange -= StartGame;
+        }
+
+        /// <summary>
+        /// Launches the game when the target is hit.
+        /// </summary>
+        public void StartGame(int unusedPoints)
+        {
+            StartCoroutine(StartGameRoutine());
+        }
 
         public IEnumerator StartGameRoutine()
         {

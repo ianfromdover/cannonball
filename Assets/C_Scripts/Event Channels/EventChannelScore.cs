@@ -1,19 +1,21 @@
 using System;
 using UnityEngine;
 
-
-/// <summary>
-/// A blueprint for a 'score event'
-/// </summary>
-[CreateAssetMenu(fileName = "New Score Event Channel", menuName = "Score Event Channel")]
-public class EventChannelScore : EventChannel
+namespace C_Scripts.Event_Channels
 {
-    public new Action<int> OnChange;
-    private int _scoreVal;
-
-    public void Publish(int val)
+    /// <summary>
+    /// A blueprint for a 'score event' that takes in an int.
+    /// </summary>
+    [CreateAssetMenu(fileName = "New Score Event Channel", menuName = "Score Event Channel")]
+    public class EventChannelScore : EventChannel
     {
-        _scoreVal = val;
-        OnChange.Invoke(_scoreVal);
+        public new Action<int> OnChange;
+        private int _scoreVal;
+
+        public void Publish(int val)
+        {
+            _scoreVal = val;
+            OnChange.Invoke(_scoreVal);
+        }
     }
 }

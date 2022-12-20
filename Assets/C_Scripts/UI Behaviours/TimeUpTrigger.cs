@@ -1,3 +1,4 @@
+using C_Scripts.Event_Channels;
 using C_Scripts.Managers;
 using UnityEngine;
 
@@ -13,7 +14,6 @@ namespace C_Scripts.UI_Behaviours
 
         private void Start() { timerStopped.OnChange += Run; }
         private void OnDestroy() { timerStopped.OnChange -= Run; }
-
         private void Run() { _uiScreenManager.EnableEndModal(); }
     }
 }

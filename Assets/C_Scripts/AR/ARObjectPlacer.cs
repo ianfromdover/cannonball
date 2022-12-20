@@ -1,36 +1,47 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using C_Scripts.Event_Channels;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
-namespace C_Scripts
+namespace C_Scripts.AR
 {
   /// <summary>
   /// Spawns a preview object on a plane if it finds one,
-  /// and then spawns the object in the same location when the player decides to.
+  /// and then spawns the actual object in the preview location.
+  ///
+  /// In this project, the objects used are the moving target boards.
   /// </summary>
   public class ARObjectPlacer : MonoBehaviour
   {
-    public GameObject previewObject;
-    public GameObject placementObject; 
+    [SerializeField] private float reminderDist = 0.5f;
+    [SerializeField] private GameObject previewObject;
+    [SerializeField] private GameObject placementObject; 
     [SerializeField] private EventChannel tooCloseToTarget;
     [SerializeField] private ARHitTestCenter hitTester;
-    [SerializeField] private float reminderDist = 0.5f;
-    
 
-    /// A reference to the spawned cursor in the center of the screen.
+    /// The spawned preview object in the center of the screen.
     private GameObject _spawnedPreviewObject;
-    /// A reference to the placed gameobject to be destroyed on OnDestroy.
-    private GameObject _placedObject; // singleton
-    private IARSession _session;
-    private bool _isBeingDisabled = false; // flag for disabling preview object
     
-    private void Start() { ARSessionFactory.SessionInitialized += _SessionInitialized; }
+    /// The placed GameObject, to be destroyed on OnDestroy.
+    private GameObject _placedObject;
+    
+    // flag for disabling preview object
+    private bool _isBeingDisabled = false; 
+    
+    private IARSession _session;
 
-    private void OnDisable() { DestroySpawnedCursor(); }
+    private void Start()
+    {
+      ARSessionFactory.SessionInitialized += _SessionInitialized;
+    }
+
+    private void OnDisable()
+    {
+      DestroySpawnedPreviewObject();
+    }
 
     private void OnDestroy()
     {
@@ -39,11 +50,14 @@ namespace C_Scripts
       var session = _session;
       if (session != null) session.FrameUpdated -= _FrameUpdated;
 
-      DestroySpawnedCursor();
+      DestroySpawnedPreviewObject();
       ClearObject();
     }
 
-    private void DestroySpawnedCursor()
+    /// <summary>
+    /// Destroy the ghost preview object.
+    /// </summary>
+    private void DestroySpawnedPreviewObject()
     {
       if (_spawnedPreviewObject == null) return;
 
@@ -65,19 +79,22 @@ namespace C_Scripts
 
     private void _OnSessionDeinitialized(ARSessionDeinitializedArgs args)
     {
-      DestroySpawnedCursor();
+      DestroySpawnedPreviewObject();
       ClearObject();
     }
 
     private void _FrameUpdated(FrameUpdatedArgs args)
     {
       if (!hitTester.IsPlaneDetected) return;
+      
+      // prevent this method from re-enabling the preview object in the same frame.
       if (_isBeingDisabled)
       {
         _isBeingDisabled = false;
         return;
       }
 
+      // create preview object
       if (_spawnedPreviewObject == null)
       {
         _spawnedPreviewObject = Instantiate
@@ -88,20 +105,22 @@ namespace C_Scripts
         );
       }
 
-      // Set the cursor object to the hit test result's position and its anchor's rotation
+      // Set the preview object to
+      // the hit test result's position and its anchor's rotation
       var result = hitTester.Result;
       _spawnedPreviewObject.transform.position = result.WorldTransform.ToPosition();
       _spawnedPreviewObject.transform.rotation = result.Anchor != null
         ? result.Anchor.Transform.ToRotation()
         : Quaternion.identity;
       
-      // remind player if the target is too close
-      if (result.Distance < reminderDist)
-      {
-        tooCloseToTarget.Publish();
-      }
+      // remind player if they are too close to the target
+      if (result.Distance < reminderDist) tooCloseToTarget.Publish();
     }
 
+    /// <summary>
+    /// Places a new object where the preview was.
+    /// If the object has already been placed, move it instead.
+    /// </summary>
     public void PlaceObject()
     {
       if (_placedObject == null)
@@ -122,7 +141,10 @@ namespace C_Scripts
         ); 
       }
     }
-    
-    private void ClearObject() { Destroy(_placedObject); }
+
+    private void ClearObject()
+    {
+      Destroy(_placedObject);
+    }
   }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace C_Scripts.Managers
 {
     /// <summary>
-    /// Enables and disables groups of GameObjects of UI elements in the Game Scene.
+    /// Enables and disables groups of GameObjects of UI elements in the AR Cannon Scene.
     /// Methods called by UnityEvents on Buttons.
     /// </summary>
     public class UiScreenManager : MonoBehaviour
@@ -12,18 +12,33 @@ namespace C_Scripts.Managers
         [SerializeField] private int currPage = 0;
         [SerializeField] private GameObject endModal;
         [SerializeField] private List<GameObject> screens = new List<GameObject>();
-    
-        void Start() { Enable(currPage); }
-        private void Enable(int page) { screens[page].SetActive(true); }
-        private void Disable(int page) { screens[page].SetActive(false); }
+
+        void Start()
+        {
+            Enable(currPage);
+        }
+
+        /* --- helper functions --- */
+        private void Enable(int page)
+        {
+            screens[page].SetActive(true);
+        }
+
+        private void Disable(int page)
+        {
+            screens[page].SetActive(false);
+        }
 
         private void EnableNextPage()
         {
             bool outOfBounds = (currPage < 0) || (currPage >= screens.Count);
             if (!outOfBounds) Enable(currPage);
         }
+        /* --- helper functions end --- */
     
-        // enable the next group of tutorial gameobjects
+        /// <summary>
+        /// Enables the next group of UI Elements
+        /// </summary>
         public void NextGroup()
         {
             Disable(currPage);
@@ -31,7 +46,9 @@ namespace C_Scripts.Managers
             EnableNextPage();
         }
     
-        // enable the previous group of tutorial gameobjects
+        /// <summary>
+        /// Enables the previous group of UI Elements
+        /// </summary>
         public void PrevGroup()
         {
             Disable(currPage);
@@ -39,7 +56,9 @@ namespace C_Scripts.Managers
             EnableNextPage();
         }
         
-        // enable the previous group of tutorial gameobjects
+        /// <summary>
+        /// Enables a specific group of UI Elements
+        /// </summary>
         public void GoToGroup(int page)
         {
             Disable(currPage);
@@ -47,8 +66,12 @@ namespace C_Scripts.Managers
             EnableNextPage();
         }
 
-        // enable and disable the pop-up when the timer runs out.
-        public void EnableEndModal() { endModal.SetActive(true); }
-        public void DisableEndModal() { endModal.SetActive(false); }
+        /// <summary>
+        /// Enables pop-up end modal when the timer runs out.
+        /// </summary>
+        public void EnableEndModal()
+        {
+            endModal.SetActive(true);
+        }
     }
 }

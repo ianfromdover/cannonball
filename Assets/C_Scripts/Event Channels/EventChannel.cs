@@ -1,19 +1,21 @@
 using System;
 using UnityEngine;
 
-/// <summary>
-/// A blueprint for an 'event'
-/// Makes it much easier to subscribe many methods across classes to the event and call them.
-/// Reduces coupling because publishing classes don't need to know
-/// what methods the subscribed classes have.
-/// </summary>
-[CreateAssetMenu(fileName = "New Event Channel", menuName = "Event Channel")]
-public class EventChannel : ScriptableObject
+namespace C_Scripts.Event_Channels
 {
-    public Action OnChange;
-
-    public void Publish()
+    /// <summary>
+    /// A blueprint for an 'event' built on a ScriptableObject
+    /// Allows dev team to name and enumerate the events that are being published.
+    /// Makes it easier to subscribe many methods across classes to the event and call them.
+    /// </summary>
+    [CreateAssetMenu(fileName = "New Event Channel", menuName = "Event Channel")]
+    public class EventChannel : ScriptableObject
     {
-        OnChange.Invoke();
+        public Action OnChange;
+
+        public void Publish()
+        {
+            OnChange.Invoke();
+        }
     }
 }

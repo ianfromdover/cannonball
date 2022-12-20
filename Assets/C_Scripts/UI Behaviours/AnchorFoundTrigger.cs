@@ -1,3 +1,4 @@
+using C_Scripts.Event_Channels;
 using C_Scripts.Managers;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ namespace C_Scripts.UI_Behaviours
         public EventChannel anchorsFound;
         [SerializeField] private GameObject continueButton;
 
-        private void Start() { anchorsFound.OnChange += Run; }
-        private void OnDestroy() { anchorsFound.OnChange -= Run; }
-        private void Run() { continueButton.SetActive(true); }
+        private void Start() { anchorsFound.OnChange += Enable; }
+        private void OnDestroy() { anchorsFound.OnChange -= Enable; }
+        private void Enable() { continueButton.SetActive(true); }
     }
 }

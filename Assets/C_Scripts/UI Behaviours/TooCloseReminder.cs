@@ -1,8 +1,13 @@
 using System.Collections;
+using C_Scripts.Event_Channels;
 using UnityEngine;
 
 namespace C_Scripts.UI_Behaviours
 {
+    /// <summary>
+    /// Shows the player a reminder when they are too close to
+    /// the target.
+    /// </summary>
     public class TooCloseReminder : MonoBehaviour
     {
         [SerializeField] private GameObject instructionText;
@@ -25,6 +30,5 @@ namespace C_Scripts.UI_Behaviours
             instructionText.SetActive(true);
             reminderText.SetActive(false);
         }
-
     }
 }

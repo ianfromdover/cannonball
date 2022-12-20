@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using C_Scripts.Event_Channels;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
 /// Joystick script by Fenerax Studios
-/// Changes made: Added shotPointerUp event channel to trigger cannon shots
+/// Changes made: (line 125) Added shotPointerUp event channel to trigger cannon shots
 /// </summary>
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {

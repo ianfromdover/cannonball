@@ -1,13 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using C_Scripts.Event_Channels;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.HitTest;
-using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
-namespace C_Scripts
+namespace C_Scripts.AR
 {
   /// <summary>
   /// Helper script that finds planes and returns the result.
@@ -18,10 +17,12 @@ namespace C_Scripts
   {
     /// The camera used to render the scene. Used to get the center of the screen.
     public Camera Camera;
+    [SerializeField] private EventChannel anchorsFound;
+    
+    // The result of the hit test. Used by ARObjectPlacer to place objects.
     public IARHitTestResult Result { get; private set; }
     public bool IsPlaneDetected { get; private set; }
     public bool DoPlanesExist { get; private set; }
-    public EventChannel anchorsFound;
     private IARSession _session;
 
     private void Start()
@@ -50,9 +51,8 @@ namespace C_Scripts
 
     /// <summary>
     /// Checks if the middle of the screen has a surface to
-    /// place an object on
+    /// place an object on. Sets the result if it does.
     /// </summary>
-    /// <param name="args"></param>
     private void _FrameUpdated(FrameUpdatedArgs args)
     {
       var camera = Camera;
@@ -62,15 +62,14 @@ namespace C_Scripts
         return;
       }
 
+      // Hit test for cursor in the middle of the screen
       var viewportWidth = camera.pixelWidth;
       var viewportHeight = camera.pixelHeight;
-
-      // Hit testing for cursor in the middle of the screen
       var middle = new Vector2(viewportWidth / 2f, viewportHeight / 2f);
 
-      var frame = args.Frame;
       // Perform a hit test and either estimate a vertical plane
       // or an existing plane and its extents.
+      var frame = args.Frame;
       var hitTestResults =
         frame.HitTest
         (
