@@ -19,4 +19,7 @@ Please ensure that your Android device meets the [minimum device requirements to
 - [Cannon Shot sound](https://freesound.org/people/qubodup/sounds/187767/) by qubodup, licensed under CC0
 - [Screen shake script and explosion particle effect](https://www.youtube.com/watch?v=RnEO3MRPr5Y) by Adam Konig
 - [The Siren's Light Pirate Ship](https://skfb.ly/RqTz) by Krimsun, licensed under CC Attribution
+- [Fantasy Wooden GUI: Free](https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811) by Black Hammer on Unity Asset Store
+- [Score UI and Title: 20 Logo Templates](https://assetstore.unity.com/packages/2d/gui/icons/20-logo-templates-with-customizable-psd-vector-sources-174999) by Pirate Parrot on Unity Asset Store
+- [Yeonsung Font](http://font.woowahan.com/yeonsung/) by Woowa Brothers, free for commercial use
 

@@ -12,7 +12,7 @@ namespace C_Scripts
     {
         [SerializeField] private int pointsWorth = 10;
         [SerializeField] private EventChannelScore addPoints;
-        // [SerializeField] private GameObject scoreParticle; // shows the number of points
+        [SerializeField] private GameObject scoreParticle; // shows the number of points
         // [SerializeField] private AudioSource scoreSound;
 
         private void OnCollisionEnter(Collision other)
@@ -20,9 +20,11 @@ namespace C_Scripts
             if (other.gameObject.GetComponent<Cannonball>() != null) // the other object is a cannonball
             {
                 addPoints.Publish(pointsWorth);
-                // Instantiate(scoreParticle, other.transform);
+                var scoreParticleInst = Instantiate(scoreParticle);
+                scoreParticleInst.transform.position = other.transform.position;
                 // scoreSound.Play();
                 Destroy(other.gameObject);
+                // Destroy(scoreParticleInst, 2);
             }
         }
     }

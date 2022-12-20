@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsWorth: 40
   addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
+  scoreParticle: {fileID: 3625278001842679245, guid: 83280b81d47465f45ad7f29c12ff0970,
+    type: 3}
 --- !u!1 &2091295308046595033
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsWorth: 50
   addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
+  scoreParticle: {fileID: 3625278001842679245, guid: 22bd89f8fc2d9074c8b4bfb8fb7f123d,
+    type: 3}
 --- !u!1 &4685525285875244671
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsWorth: 20
   addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
+  scoreParticle: {fileID: 3625278001842679245, guid: 46bce5cd652801a4fb33f83299721664,
+    type: 3}
 --- !u!1 &5350795490568292041
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsWorth: 30
   addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
+  scoreParticle: {fileID: 3625278001842679245, guid: f3d475661612b4547b5f2771f065a9c8,
+    type: 3}
 --- !u!1 &7651068739286599696
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsWorth: 10
   addPoints: {fileID: 11400000, guid: 38b1ee5c22739ff48a5cb4824ca3bba1, type: 2}
+  scoreParticle: {fileID: 3625278001842679245, guid: 0afc9a3c7be2bfb4dbc0c9dfb0908fce,
+    type: 3}
 --- !u!1 &9057664261847730035
 GameObject:
   m_ObjectHideFlags: 0
