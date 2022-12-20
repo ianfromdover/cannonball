@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace C_Scripts
@@ -24,7 +21,7 @@ namespace C_Scripts
                 scoreParticleInst.transform.position = other.transform.position;
                 // scoreSound.Play();
                 Destroy(other.gameObject);
-                // Destroy(scoreParticleInst, 2);
+                Destroy(scoreParticleInst, 2); // todo: object pooling
             }
         }
     }

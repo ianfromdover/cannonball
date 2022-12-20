@@ -83,7 +83,7 @@ public class CannonController : MonoBehaviour
             
         // add explosion and screen shake
         Destroy(Instantiate(explosion, startPos, startRot), 2);
-        cameraController.Shake();
+        if (cameraController != null) cameraController.Shake();
         shotSound.Play();
     }
 

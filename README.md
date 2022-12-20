@@ -22,4 +22,5 @@ Please ensure that your Android device meets the [minimum device requirements to
 - [Fantasy Wooden GUI: Free](https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811) by Black Hammer on Unity Asset Store
 - [Score UI and Title: 20 Logo Templates](https://assetstore.unity.com/packages/2d/gui/icons/20-logo-templates-with-customizable-psd-vector-sources-174999) by Pirate Parrot on Unity Asset Store
 - [Yeonsung Font](http://font.woowahan.com/yeonsung/) by Woowa Brothers, free for commercial use
-
+- [Pirate Photo](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) by Philipp Deus on Unsplash
+  

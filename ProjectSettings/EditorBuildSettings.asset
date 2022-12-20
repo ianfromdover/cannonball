@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/B_Scenes/[Test] Cannon Game Scene.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   - enabled: 0
@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/ARDKExamples/VpsCoverage/VpsCoverageExample.unity
     guid: 138112bde976c40c6833cbf125ab73e0
+  - enabled: 1
+    path: Assets/B_Scenes/Start Menu Scene.unity
+    guid: a2106bbe687111348810864dcbdafd31
+  - enabled: 1
+    path: Assets/B_Scenes/AR Cannon Scene.unity
+    guid: 5fd30262848797e40a8f789c96647725
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: bc9ceb4f09c636a469ccefd45bdff14c,
       type: 2}
