@@ -7,7 +7,9 @@ namespace C_Scripts.Managers
 {
     public class StartMenuManager : MonoBehaviour
     {
-        public EventChannelScore pointScored;
+        [SerializeField] private float fadeTime = 3.0f;
+        [SerializeField] private Animator animator;
+        [SerializeField] private EventChannelScore pointScored;
         public string nextScene;
 
         void Start()
@@ -28,11 +30,11 @@ namespace C_Scripts.Managers
             StartCoroutine(StartGameRoutine());
         }
 
-        public IEnumerator StartGameRoutine()
+        private IEnumerator StartGameRoutine()
         {
             // fade scene out
-            // TODO: create fade out
-            yield return new WaitForSeconds(2);
+            animator.SetBool("shouldFade", true);
+            yield return new WaitForSeconds(fadeTime);
         
             // load next scene
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextScene);

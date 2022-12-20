@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,26 @@ namespace C_Scripts.UI_Behaviours
     /// </summary>
     public class ExitToStartMenu : MonoBehaviour
     {
+        [SerializeField] private float fadeTime = 1.0f;
         [SerializeField] private string startMenuScene;
-        public void GoToStartMenu() { SceneManager.LoadScene(startMenuScene); }
+        [SerializeField] private Animator animator;
+
+        public void GoToStartMenu()
+        {
+            StartCoroutine(FadeAndLoadRoutine());
+        }
+
+        private IEnumerator FadeAndLoadRoutine()
+        {
+            
+            animator.SetBool("shouldFade", false);
+            yield return new WaitForSeconds(fadeTime);
+            
+            // load start menu scene
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(startMenuScene);
+            
+            // launch next scene when loading is done
+            while (!asyncLoad.isDone) yield return null;
+        }
     }
 }
