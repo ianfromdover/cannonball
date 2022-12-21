@@ -12,7 +12,7 @@ namespace C_Scripts.Object_Behaviours
         [SerializeField] private int pointsWorth = 10;
         [SerializeField] private EventChannelScore addPoints;
         [SerializeField] private GameObject scoreParticle; // shows the number of points
-        // [SerializeField] private AudioSource scoreSound;
+        [SerializeField] private AudioSource scoreSound;
 
         private void OnCollisionEnter(Collision other)
         {
@@ -26,7 +26,7 @@ namespace C_Scripts.Object_Behaviours
             var scoreParticleInst = Instantiate(scoreParticle);
             scoreParticleInst.transform.position = other.transform.position;
             
-            // scoreSound.Play();
+            scoreSound.Play();
             
             Destroy(other.gameObject);
             Destroy(scoreParticleInst, 2);

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 namespace C_Scripts.Managers
 {
+    /// <summary>
+    /// Fades out, launches the game scene when the target is hit.
+    /// </summary>
     public class StartMenuManager : MonoBehaviour
     {
         [SerializeField] private float fadeTime = 3.0f;

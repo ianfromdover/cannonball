@@ -15,8 +15,9 @@ Please ensure that your Android device meets the [minimum device requirements to
 
 # Asset Credits
 
-- [Hand Painted Cannon model](https://skfb.ly/oopWA) by carlosbarrera_10, licensed under CC Attribution
+- [Hand Painted Cannon model](https://skfb.ly/oopWA) by carlosbarrera\_10, licensed under CC Attribution
 - [Cannon Shot sound](https://freesound.org/people/qubodup/sounds/187767/) by qubodup, licensed under CC0
+- [Point Scoring sound](https://freesound.org/people/ani_music/sounds/198390/) by ani\_music, licensed under CC0, edited in Audacity
 - [Screen shake script and explosion particle effect](https://www.youtube.com/watch?v=RnEO3MRPr5Y) by Adam Konig
 - [The Siren's Light Pirate Ship](https://skfb.ly/RqTz) by Krimsun, licensed under CC Attribution
 - [Fantasy Wooden GUI: Free](https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811) by Black Hammer on Unity Asset Store
