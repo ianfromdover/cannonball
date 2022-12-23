@@ -10,13 +10,11 @@ namespace C_Scripts.Object_Behaviours
     public class CannonController : MonoBehaviour
     {
     
-        [SerializeField] private float _shotPowerMultiplier = 5;
-        public float CurrShotPower { get; private set; }
+        [SerializeField] private float shotPowerMultiplier = 5;
+        public float ShotPower { get; private set; }
     
-        [SerializeField] private float rotationSpeed = 1;
-        [SerializeField] private float maxAimVertAngle = 70;
-        [SerializeField] private float minAimVertAngle = 0;
-        [SerializeField] private float maxAimHorizAngle = 60;
+        [SerializeField] private float maxVertAngle = 70;
+        [SerializeField] private float maxHorizAngle = 60;
         
         [SerializeField] private Transform shotSource;
         [SerializeField] private Transform cannonBarrel;
@@ -26,8 +24,7 @@ namespace C_Scripts.Object_Behaviours
         [SerializeField] private EventChannel onShot;
     
         [SerializeField] private AudioSource shotSound;
-        [SerializeField] private Joystick joystickAim; // 2 deg of freedom, both from -1..1
-        [SerializeField] private Joystick joystickPower;
+        [SerializeField] private Joystick joystick; // axes from -1..1 for both horiz and vert
         [SerializeField] private ARCameraController cameraController;
         
         private Vector3 _cannonOrigRotation;
@@ -36,27 +33,28 @@ namespace C_Scripts.Object_Behaviours
         {
             onShot.OnChange += Shoot;
             _cannonOrigRotation = cannonBarrel.localRotation.eulerAngles;
+            ShotPower = shotPowerMultiplier;
         }
 
+        /// <summary>
+        /// Rotates the cannon and cannon barrel based on the joystick input.
+        /// </summary>
         void Update()
         {
-            // update shot power from joystick
-            float remappedPowerInput = -(joystickPower.Vertical - 1) / 2; // map -1..1 to 1..0
-            CurrShotPower = remappedPowerInput * _shotPowerMultiplier;
-        
-            // rotate cannon base horizontally
-            float rotHoriz = joystickAim.Horizontal;
-            float rotVert = joystickAim.Vertical;
-        
-            float newHorizAngle = transform.localRotation.eulerAngles.y + rotHoriz * rotationSpeed;
-            float horizAimAngle = ClampAngle(newHorizAngle, -maxAimHorizAngle, maxAimHorizAngle);
-            transform.localRotation = Quaternion.Euler(new Vector3(0, horizAimAngle, 0));
-        
-            // rotate cannon barrel vertically
-            float vertAimAngle = Mathf.Clamp(cannonBarrel.localRotation.eulerAngles.z + rotVert * rotationSpeed, 
-                minAimVertAngle, maxAimVertAngle);
-            cannonBarrel.localRotation = Quaternion.Euler(new Vector3(_cannonOrigRotation.x, 
-                _cannonOrigRotation.y, _cannonOrigRotation.z + vertAimAngle));
+            // maps -1..1 to maxHorzAngle..-maxHorzAngle for the cannon
+            float nextHorizAngle = -joystick.Horizontal * maxHorizAngle;
+            
+            // maps -1..1 to maxVertAngle..0 for the cannon barrel
+            float nextVertAngle = -((joystick.Vertical - 1) / 2) * maxVertAngle; 
+            
+            // apply the transformations
+            transform.localRotation = Quaternion.Euler(new Vector3(0, nextHorizAngle, 0));
+            cannonBarrel.localRotation = Quaternion.Euler(new Vector3
+            (
+                _cannonOrigRotation.x, 
+                _cannonOrigRotation.y, 
+                _cannonOrigRotation.z + nextVertAngle
+            ));
         }
 
         private void OnDestroy()
@@ -67,10 +65,10 @@ namespace C_Scripts.Object_Behaviours
         /// <summary>
         /// Returns whether the cannon is shooting or not.
         /// </summary>
-        /// <returns>Whether the player is interacting with the power joystick</returns>
+        /// <returns>Whether the player is interacting with the joystick</returns>
         public bool IsShooting()
         {
-            return joystickPower.Vertical != 0;
+            return joystick.Vertical != 0 || joystick.Horizontal != 0;
         }
     
         /// <summary>
@@ -82,7 +80,7 @@ namespace C_Scripts.Object_Behaviours
             Quaternion startRot = shotSource.rotation;
             
             GameObject newBall = Instantiate(cannonball, startPos, startRot);
-            newBall.GetComponent<Rigidbody>().velocity = shotSource.transform.up * CurrShotPower;
+            newBall.GetComponent<Rigidbody>().velocity = shotSource.transform.up * ShotPower;
             Destroy(newBall, 10);
             
             // add explosion and screen shake

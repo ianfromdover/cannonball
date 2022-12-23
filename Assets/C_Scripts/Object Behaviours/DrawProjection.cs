@@ -30,7 +30,7 @@ namespace C_Scripts.Object_Behaviours
             lineRenderer.positionCount = maxPointsOnLine;
             List<Vector3> linePositions = new List<Vector3>();
             Vector3 startPos = shotSource.position;
-            Vector3 startVel = shotSource.up * cannonController.CurrShotPower;
+            Vector3 startVel = shotSource.up * cannonController.ShotPower;
         
             // estimate the projectile motion of the cannonball
             for (float t = 0; t < maxPointsOnLine; t += timeBetweenPoints)
