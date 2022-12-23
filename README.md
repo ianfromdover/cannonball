@@ -2,6 +2,9 @@
 
 A simple AR target shooting game for Android using Lightship ARDK
 
+![Cover](./Docs/cover.png)
+![Gameplay](./Docs/gameplay.png)
+
 Shoot cannonballs at a moving target, anchored on a vertical surface in the real world without an image marker.
 
 # Versions and Packages for Installation
@@ -28,10 +31,14 @@ On opening the application, the player needs to shoot the target board to start 
 The player drags the joystick at the bottom of the screen to aim, making a trajectory path appear.
 On releasing the joystick, a cannonball is fired. This teaches the player the main interaction even before they start playing, for a seamless experience.
 
+![Placement](./Docs/placement.png)
+
 Upon entering the AR scene, the player is given a safety warning, and then they are guided through 
 a process of placing the targetboard on a wall or vertical surface. If the player stands too close to
 the target board (0.5m), they are reminded to move back or place the target board further away.
 The player is allowed to ignore this warning and continue playing.
+
+![Reposition](./Docs/reposition.png)
 
 The player is given a confirmation screen about its placement. If they wish to reposition the targetboard, they may do so using the `Replace` button.
 
