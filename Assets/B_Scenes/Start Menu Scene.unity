@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 44133552}
   m_Layer: 0
-  m_Name: -- Camera --
+  m_Name: -- Camera, Cannon --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,9 +995,19 @@ PrefabInstance:
       objectReference: {fileID: 1390290084}
     - target: {fileID: 3273888417518526905, guid: d4a1a1231b7c9aa4eaf646de34813d93,
         type: 3}
+      propertyPath: maxPointsOnLine
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3273888417518526905, guid: d4a1a1231b7c9aa4eaf646de34813d93,
+        type: 3}
       propertyPath: cannonController
       value: 
       objectReference: {fileID: 1390290083}
+    - target: {fileID: 3273888417518526905, guid: d4a1a1231b7c9aa4eaf646de34813d93,
+        type: 3}
+      propertyPath: timeBetweenPoints
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3987708088071560214, guid: d4a1a1231b7c9aa4eaf646de34813d93,
         type: 3}
       propertyPath: joystick
@@ -1017,6 +1027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraController
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987708088071560214, guid: d4a1a1231b7c9aa4eaf646de34813d93,
+        type: 3}
+      propertyPath: shotPowerMultiplier
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7770454602030544484, guid: d4a1a1231b7c9aa4eaf646de34813d93,
         type: 3}
@@ -1327,6 +1342,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: onRelease
+      value: 
+      objectReference: {fileID: 11400000, guid: a1083b4fc3bf97d428d12789ef5d4e3b,
+        type: 2}
     - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_Sprite

@@ -6,6 +6,8 @@ namespace C_Scripts.Object_Behaviours
 {
     /// <summary>
     /// Controls the movement and shooting of the cannon.
+    /// The shot is triggered by the OnShot event channel in the FixedJoystick component
+    /// on the joystick UI GameObject.
     /// </summary>
     public class CannonController : MonoBehaviour
     {
@@ -64,6 +66,7 @@ namespace C_Scripts.Object_Behaviours
 
         /// <summary>
         /// Returns whether the cannon is shooting or not.
+        /// Used by the LineRenderer to determine whether to render the line.
         /// </summary>
         /// <returns>Whether the player is interacting with the joystick</returns>
         public bool IsShooting()
@@ -87,18 +90,6 @@ namespace C_Scripts.Object_Behaviours
             Destroy(Instantiate(explosion, startPos, startRot), 2);
             if (cameraController != null) cameraController.Shake();
             shotSound.Play();
-        }
-
-        /// <summary>
-        /// Angle clamp function by DerDicke
-        /// Referenced from http://answers.unity.com/answers/1455566/view.html
-        /// </summary>
-        /// <returns>The clamped angle</returns>
-        private float ClampAngle(float angle, float min, float max)
-        {
-            if (angle < 0f) angle = 360 + angle;
-            if (angle > 180f) return Mathf.Max(angle, 360 + min);
-            return Mathf.Min(angle, max);
         }
     }
 }

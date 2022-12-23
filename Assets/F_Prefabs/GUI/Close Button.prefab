@@ -146,4 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91739300ca3ab284c8ae62cc7fa0d347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeTime: 1
   startMenuScene: Start Menu Scene
+  animator: {fileID: 0}
