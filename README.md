@@ -12,7 +12,7 @@ Shoot cannonballs at a moving target, anchored on a vertical surface in the real
 To install the game itself to play, head over to the Releases page and download the latest version of `cannonball.apk`
 
 Please ensure that your Android device has at been updated to at least Android 12 and meets the [minimum device requirements to run Lightship ARDK](https://lightship.dev/docs/ardk/ardk_fundamentals/system_reqs.html#runtime-requirements)
-This project was tested on a Samsung Galaxy S10 and Samsung Galaxy S20+
+This project was tested on a Samsung Galaxy S10, Galaxy S20+ and Galaxy S22+.
 
 For installing the project for development,
 
@@ -36,12 +36,14 @@ The player drags the joystick at the bottom of the screen to aim, making a traje
 On releasing the joystick, a cannonball is fired. This teaches the player the main interaction even before they start playing, for a seamless experience.
 
 Upon entering the AR scene, the player is given a safety warning, and then they are guided through
-a process of placing the targetboard on a wall or vertical surface.
+a process of placing the target board on a wall or vertical surface.
 
 ![Tutorial](./Docs/tutorial.jpg)
 
 When the "Find a vertical surface..." message is shown, the app will
-only show a `Next` button after a plane is detected.
+only show a `Next` button after a plane is detected. Do be patient if
+the phone cannot detect a vertical surface, and try a different location
+if a surface cannot be found within 30s.
 
 ![Placement](./Docs/placement.png)
 
@@ -69,9 +71,19 @@ To test the project in Unity Editor,
 
 # Known Issues
 
-Due to the limitations of Unity's collision detection system, it is possible for 1 cannonball to hit 2 scoring zones, giving the player more points.
+Firstly, while testing the build, the target board's ghost does not
+disappear after confirming its placement. This issue does not happen
+with the mock environment when playing in the Unity Editor.
+Attempted fixes have not been successful yet.
 
-A saving system was not implemented, making the highscore reset every time the app is opened. This is fair because if the player goes to a new location, their highscore should not be compared to that of the previous location.
+Due to the limitations of Unity's collision detection system, 
+it is possible for 1 cannonball to hit 2 scoring zones, 
+giving the player more points.
+
+A saving system was not implemented, making the highscore 
+reset every time the app is opened. This is fair because if 
+the player goes to a new location, their highscore should 
+not be compared to that of the previous location.
 
 # Further Improvements
 
