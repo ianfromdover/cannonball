@@ -76,8 +76,7 @@ namespace C_Scripts.AR
           viewportWidth,
           viewportHeight,
           middle,
-          ARHitTestResultType.ExistingPlaneUsingExtent |
-          ARHitTestResultType.EstimatedVerticalPlane
+          ARHitTestResultType.ExistingPlaneUsingExtent
         );
 
       if (hitTestResults.Count == 0)

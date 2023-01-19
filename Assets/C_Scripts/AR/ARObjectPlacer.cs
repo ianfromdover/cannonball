@@ -56,6 +56,11 @@ namespace C_Scripts.AR
 
     /// <summary>
     /// Destroy the ghost preview object.
+    ///
+    /// TODO: This method is being called by OnDisable but in the build,
+    /// the previewObject appears to not be destroyed. It is probably being
+    /// respawned. The problem could lie in the AR session frame synchronisation
+    /// or the anchors generated.
     /// </summary>
     private void DestroySpawnedPreviewObject()
     {
@@ -91,7 +96,9 @@ namespace C_Scripts.AR
       if (_isBeingDisabled)
       {
         _isBeingDisabled = false;
-        return;
+        return; // this will be the last frame updated because this game obj
+                // will be disabled in the next frame
+                // and that will disable this script component
       }
 
       // create preview object
