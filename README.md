@@ -19,6 +19,7 @@ For installing the project for development,
 1. Ensure that you have the following:
 
 - Unity 2021.3.14f1
+- ['Cesium for Unity' Package](https://github.com/CesiumGS/cesium-unity/releases) (any version after v1.2.0)
 
 These packages are already included in the project files:
 
