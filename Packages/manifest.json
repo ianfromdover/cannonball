@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.cesium.unity": "file:com.cesium.unity-1.2.0.tgz",
+    "com.google.ar.core.arfoundation.extensions": "https://github.com/google-ar/arcore-unity-extensions.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.adaptiveperformance": "4.0.1",
     "com.unity.adaptiveperformance.samsung.android": "4.0.2",
@@ -13,6 +15,9 @@
     "com.unity.timeline": "1.6.4",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.7.8",
+    "com.unity.xr.arcore": "4.2.7",
+    "com.unity.xr.arfoundation": "4.2.7",
+    "com.unity.xr.arkit": "4.2.7",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

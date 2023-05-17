@@ -5,16 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/B_Scenes/Start Menu Scene.unity
     guid: a2106bbe687111348810864dcbdafd31
-  - enabled: 1
+  - enabled: 0
     path: Assets/B_Scenes/AR Cannon Scene.unity
     guid: 5fd30262848797e40a8f789c96647725
+  - enabled: 1
+    path: Assets/B_Scenes/GeospatialTest.unity
+    guid: 7806316f674054e988113d0f9354ac34
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 310fd00a3687b4f3ea760493dc25ef76,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: ec6f1cc1ef57a47eea631b4a01227bd9,
+      type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: bc9ceb4f09c636a469ccefd45bdff14c,
       type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
       guid: 4dc32e337bc0e284bb02db8f4d6257ea, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 560312fd16c282143bb9955090a51404, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fcdb0414e590a4af28c98fb12a3b979e,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5b37925ec27ec4a83b106556cabaea8f,
+      type: 2}
